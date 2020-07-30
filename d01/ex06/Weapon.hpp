@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   Weapon.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2020/07/29 08:19:25 by bdekonin      #+#    #+#                 */
+/*   Updated: 2020/07/29 09:38:55 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 #include <iostream>
 #include <string>
 
-void memoryLeak()
+class Weapon
 {
-	std::string* panther = new std::string("String panther");
+	public:
+		Weapon(std::string name);
+		const std::string	&getType();
+		void				setType(std::string type);
+		void				setWeapon(Weapon &weapon);
+	private:
+		std::string			type;	
+};
 
-	std::cout << *panther << std::endl;
-	delete panther;
-}
+#endif

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   Human.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2020/07/28 15:36:07 by bdekonin      #+#    #+#                 */
+/*   Updated: 2020/07/28 20:18:11 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
-void memoryLeak()
+# include "Brain.hpp"
+
+class Human
 {
-	std::string* panther = new std::string("String panther");
+	public:
+		Human(void);
+		~Human(void);
+		Brain getBrain(void);
+		std::string identify(void);
 
-	std::cout << *panther << std::endl;
-	delete panther;
-}
+	private:
+		Brain m_brain;
+};
+
+#endif

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   HumanA.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2020/07/29 08:21:50 by bdekonin      #+#    #+#                 */
+/*   Updated: 2020/07/29 16:27:15 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-void memoryLeak()
+#include "Weapon.hpp"
+
+class HumanA
 {
-	std::string* panther = new std::string("String panther");
+	public:
+		HumanA(std::string name, Weapon &weaponClass);
+		void	attack();
+	private:
+		Weapon &m_weapon;
+		std::string name;
+};
 
-	std::cout << *panther << std::endl;
-	delete panther;
-}
+#endif // HUMANA_HPP

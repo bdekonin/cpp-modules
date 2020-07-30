@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   Human.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2020/07/28 16:53:33 by bdekonin      #+#    #+#                 */
+/*   Updated: 2020/07/28 20:14:37 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Human.hpp"
+#include "Brain.hpp"
 
-void memoryLeak()
+Human::Human(void)
 {
-	std::string* panther = new std::string("String panther");
+}
 
-	std::cout << *panther << std::endl;
-	delete panther;
+Human::~Human(void)
+{
+}
+
+Brain Human::getBrain(void)
+{
+	return (this->m_brain);
+}
+
+std::string Human::identify(void)
+{
+	return (this->m_brain.identify());
 }

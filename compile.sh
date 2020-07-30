@@ -1,0 +1,1 @@
+clang++ -Wall -Wextra -Werror $PWD/*.cpp

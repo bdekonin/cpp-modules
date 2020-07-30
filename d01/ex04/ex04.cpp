@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   ex04.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2020/07/28 15:27:43 by bdekonin      #+#    #+#                 */
+/*   Updated: 2020/07/28 15:35:21 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 
-void memoryLeak()
+int main(void)
 {
-	std::string* panther = new std::string("String panther");
+	std::string		str = "HI THIS IS BRAIN";
+	std::string		&ref = str;
+	std::string		*ptr = &str;
 
-	std::cout << *panther << std::endl;
-	delete panther;
+	std::cout << "String   : " << str << std::endl;
+	std::cout << "Reference: '" << ref << "'" << std::endl;
+	std::cout << "Pointer  : '" << ptr << "'" << std::endl;
 }

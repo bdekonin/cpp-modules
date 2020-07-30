@@ -1,22 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   Brain.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2020/07/28 17:02:13 by bdekonin      #+#    #+#                 */
+/*   Updated: 2020/07/29 08:18:01 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Brain.hpp"
 
-void memoryLeak()
+Brain::Brain(void)
 {
-	std::string* panther = new std::string("String panther");
+	setAddress();
+}
+Brain::~Brain(void)
+{
+}
 
-	std::cout << *panther << std::endl;
-	delete panther;
+void
+Brain::setAddress(void)
+{
+    std::stringstream   buff;
+
+    buff << this;
+    this->_address = buff.str();
+    return ;
+}
+
+std::string
+Brain::getAddress(void)
+{
+    return (this->_address);
+}
+
+std::string
+Brain::identify(void)
+{
+    return (this->getAddress());
 }

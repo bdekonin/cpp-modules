@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   Weapon.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2020/07/29 08:31:18 by bdekonin      #+#    #+#                 */
+/*   Updated: 2020/07/29 09:39:53 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Weapon.hpp"
 
-void memoryLeak()
+Weapon::Weapon(std::string name)
 {
-	std::string* panther = new std::string("String panther");
-
-	std::cout << *panther << std::endl;
-	delete panther;
+	this->type = name;
 }
+
+void	Weapon::setType(std::string type)
+{
+	this->type = type;
+}
+
+const std::string &Weapon::getType()
+{
+	return (this->type);
+}
+

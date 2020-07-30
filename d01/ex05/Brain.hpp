@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   Brain.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2020/07/28 15:36:07 by bdekonin      #+#    #+#                 */
+/*   Updated: 2020/07/28 20:44:52 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+/*
+** Standard Library's
+*/
+# include <iostream>
+# include <string>
+# include <sstream>
 
-void memoryLeak()
+class Brain
 {
-	std::string* panther = new std::string("String panther");
+	public:
+		Brain(void);
+		~Brain(void);
+		void		setAddress(void);
+		std::string getAddress(void);
+		std::string identify(void);
+	private:
+		std::string _address;
 
-	std::cout << *panther << std::endl;
-	delete panther;
-}
+};
+
+#endif

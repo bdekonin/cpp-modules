@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   HumanB.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2020/07/29 08:40:02 by bdekonin      #+#    #+#                 */
+/*   Updated: 2020/07/29 17:52:24 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
-void memoryLeak()
+HumanB::HumanB(std::string name) : m_name(name)
 {
-	std::string* panther = new std::string("String panther");
+}
 
-	std::cout << *panther << std::endl;
-	delete panther;
+void	HumanB::setWeapon(Weapon &weapon)
+{
+	this->m_weapon = &weapon;
+}
+
+void	HumanB::attack()
+{
+	std::cout << this->m_name << " attacks with his ";
+	std::cout << this->m_weapon->getType() << std::endl;
 }
