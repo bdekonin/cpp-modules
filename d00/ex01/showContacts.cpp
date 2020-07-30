@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/27 21:03:41 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 12:34:25 by bdekonin      ########   odam.nl         */
+/*   Updated: 2020/07/30 11:10:40 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void Contacts::ListContacts(Contacts list[], int count)
 			std::cout << list[i].m_lastName << "|";
 		}
 		if (list[i].m_nickName.length() > 10)
-			std::cout << truncString(list[i].m_nickName) << "|";
+			std::cout << truncString(list[i].m_nickName);
 		else
 		{
 			std::cout << std::setw(10);

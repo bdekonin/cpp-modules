@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/27 12:44:42 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 12:32:30 by bdekonin      ########   odam.nl         */
+/*   Updated: 2020/07/30 12:53:10 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ class Contacts
 		void			ListContacts(Contacts list[], int size);
 		int			getInformation(std::string str, Contacts list[], int count);
 		void printInformation(Contacts list);
-
 	private:
 		std::string		m_firstName;
 		std::string		m_lastName;
