@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 17:56:50 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/30 13:40:23 by bdekonin      ########   odam.nl         */
+/*   Updated: 2020/07/30 20:02:34 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int main(int argc, char **argv)
 		std::cout << "Minimum argument is: 3" << std::endl;
 		return (EXIT_FAILURE);
 	}
+	
 	std::string		filename;
 	std::ifstream 	fileIn;
 	filename = argv[1];

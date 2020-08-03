@@ -6,7 +6,7 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/07/27 10:34:22 by bdekonin      #+#    #+#                  #
-#    Updated: 2020/07/28 12:31:14 by bdekonin      ########   odam.nl          #
+#    Updated: 2020/07/30 20:16:51 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,27 @@ NAME = megaphone
 
 SRCS = megaphone.cpp
 
-FLAGS = -Wall -Wextra -Werror
+OFILES = $(SRCS:.cpp=.o)
+
+FLAGS = -std=c++98 -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(NAME): $(SRCS)
-	clang++ $(FLAGS) $(SRCS) -o $(NAME)
+$(NAME): $(OFILES)
+	@clang++ $(OFILES) -o $@
+
+%.o: %.cpp
+	clang++ $(FLAGS) -o $@ -c $<
 
 clean:
-	rm megaphone
+	@rm -f $(OFILES)
+	@echo "Removed $(OFILES)"
 
-fclean:
-	rm megaphone
+fclean: clean
+	@rm -f $(NAME)
+	@echo "[INFO] Removed $(NAME)"
 
 re: fclean all
+
+.PHONY: all clean fclean re
+

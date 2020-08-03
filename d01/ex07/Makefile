@@ -6,13 +6,13 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/07/30 20:10:30 by bdekonin      #+#    #+#                  #
-#    Updated: 2020/07/31 14:24:03 by bdekonin      ########   odam.nl          #
+#    Updated: 2020/07/30 20:14:37 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = replace
 
-SRCS = addContacts.cpp main.cpp showContacts.cpp
+SRCS = main.cpp
 OFILES = $(SRCS:.cpp=.o)
 
 FLAGS = -std=c++98 -Wall -Werror -Wextra
