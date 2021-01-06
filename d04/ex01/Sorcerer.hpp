@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Sorcerer.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/27 22:20:40 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/01/04 13:06:07 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/01/05 23:08:49 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/01/06 17:30:08 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef SORCERER_HPP
+#define SORCERER_HPP
 
-int main(void)
+#include <string>
+#include <iostream>
+
+class Sorcerer
 {
-	ponyOnTheHeap();
-	ponyOnTheStack();
-}
+	public:
+		Sorcerer(std::string name);
+		~Sorcerer(void);
+	private:
+		std::ostream &operator <<(std::ostream &output, const Sorcerer &s);
+		std::string 	_name;
+		std::string		_type;
+};
+#endif

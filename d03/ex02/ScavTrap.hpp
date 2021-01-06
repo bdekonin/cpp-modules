@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/27 22:20:40 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/01/04 13:06:07 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/01/04 13:07:30 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/01/05 14:35:30 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-int main(void)
+#include <string>
+#include <iostream>
+#include "ClapTrap.hpp"
+
+class ScavTrap: public ClapTrap
 {
-	ponyOnTheHeap();
-	ponyOnTheStack();
-}
+	public:
+		ScavTrap(void);
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const &obj);
+		~ScavTrap(void);
+		void			challengeNewcomer(void);
+};
+
+#endif

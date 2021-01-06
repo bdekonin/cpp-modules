@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   NinjaTrap.hpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/27 22:20:40 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/01/04 13:06:07 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/01/05 17:45:44 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/01/05 17:47:12 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef NINJATRAP_HPP
+#define NINJATRAP_HPP
 
-int main(void)
+#include <string>
+#include <iostream>
+#include "ClapTrap.hpp"
+
+class NinjaTrap: public ClapTrap
 {
-	ponyOnTheHeap();
-	ponyOnTheStack();
-}
+
+};
+
+#endif

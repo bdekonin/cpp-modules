@@ -5,15 +5,31 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/27 22:20:40 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/01/04 13:06:07 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/01/04 19:18:07 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/01/04 21:36:48 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	ponyOnTheHeap();
-	ponyOnTheStack();
+	FragTrap woo("woo");
+	std::string psycho = "psycho";
+
+	// woo.status();
+
+	woo.meleeAttack(psycho);
+	woo.rangedAttack(psycho);
+	woo.vaulthunter_dot_exe(psycho);
+
+	woo.takeDamage(75);
+	woo.beRepaired(25);
+
+	woo.takeDamage(75);
+
+	woo.beRepaired(25);
+	woo.beRepaired(100);
+
+	return 0;
 }
