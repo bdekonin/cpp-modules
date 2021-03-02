@@ -5,37 +5,30 @@
 #                                                      +:+                     #
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/07/27 10:34:22 by bdekonin      #+#    #+#                  #
-#    Updated: 2021/02/19 13:23:49 by bdekonin      ########   odam.nl          #
+#    Created: 2021/02/19 13:09:03 by bdekonin      #+#    #+#                  #
+#    Updated: 2021/02/19 13:55:30 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = megaphone
 
-SRCS = megaphone.cpp
+SRC = main.cpp
+NAME = a.out
 
-OFILES = $(SRCS:.cpp=.o)
-
-FLAGS = -std=c++98 -Wall -Werror -Wextra
+# do not touch
+FLAGS = -Wall -Werror -Wextra
+GCC = clang++
+OFILES = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	@clang++ $(OFILES) -o $@
-
-%.o: %.cpp
-	clang++ $(FLAGS) -o $@ -c $<
+$(NAME): $(SRC)
+	$(GCC) -o $(NAME) $(FLAGS) $(SRC)
 
 clean:
-	@rm -f $(OFILES)
-	@echo "Removed $(OFILES)"
+	rm $(NAME)
 
-fclean: clean
-	@rm -f $(NAME)
-	@echo "[INFO] Removed $(NAME)"
+fclean:
+	rm $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re
-
