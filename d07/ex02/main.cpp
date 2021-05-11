@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/19 14:59:04 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/02/19 14:59:06 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/05/11 17:53:05 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 int	main(void)
 {
-	Array<int> test(10);
-	unsigned int size = test.size();
+	Array<int> arr(10);
 
-	std::cout << "test size: " << size << std::endl;
-	for (unsigned int i = 0; i < size; i++)
-		test[i] = static_cast<int>(size) - static_cast<int>(i);
-	for (unsigned int i = 0; i < size; i++)
-		std::cout << "test[" << i << "] = " << test[i] << std::endl;
+	for (int i = 0; i < (int)arr.size(); i++)
+		arr[i] = i + i;
 
-	Array<int> test1;
-
-	std::cout << std::endl << "test1 size: " << test1.size() << std::endl;
-
+	Array<int> arrDup = arr;
+	for (int i = 0; i < (int)arrDup.size(); i++)
+		arrDup[i] = 0;
+		
+	for (int i = 0; i < (int)arr.size(); i++)
+		std::cout << "(arr)\t [" << i << "] " << arr[i] << std::endl;
+	std::cout << std::endl;
+	for (int i = 0; i < (int)arrDup.size(); i++)
+		std::cout << "(arrDup) [" << i << "] " << arrDup[i] << std::endl;
+		
 	return 0;
 }

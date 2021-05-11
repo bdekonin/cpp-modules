@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/19 14:38:58 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/02/22 11:13:31 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/05/11 17:41:30 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ class Array
 			return (_array[i]);
 		}
 	
-		unsigned int	size(void)
+		unsigned int	size(void) const
 		{
 			return _n;
 		}
