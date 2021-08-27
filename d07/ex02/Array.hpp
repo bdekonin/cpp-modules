@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/19 14:38:58 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/05/11 17:41:30 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/05/12 15:21:15 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 # include <exception>
 # include <iostream>
 # include <iomanip>
-# include <ctime>
+// # include <ctime>
 # include <cstdlib>
 # include <string>
+# include <stdexcept>
 
 template <typename T>
 class Array
@@ -36,29 +37,30 @@ class Array
 		}
 		~Array(void)
 		{
-			delete [] _array;
+			delete [] this->_array;
 		}
 	
 		Array<T>	&operator=(Array const &rhs)
 		{
-			_n = rhs._n;
-			delete _array;
-			_array = new T [rhs._n];
-			for (unsigned int i = 0; i < _n; i++)
-				_array[i] = rhs._array[i];
+			this->_n = rhs._n;
+			delete this->_array;
+			this->_array = new T[rhs._n];
+			for (unsigned int i = 0; i < this->size(); i++)
+				this->_array[i] = rhs._array[i];
 			return *this;
 		}
 	
 		T	&operator[](unsigned int i)
 		{
-			if (i >= _n)
-				throw std::exception();
-			return (_array[i]);
+			if (i >= this->_n)
+				std::out_of_range();
+				// throw std::exception();
+			return (this->_array[i]);
 		}
 	
 		unsigned int	size(void) const
 		{
-			return _n;
+			return this->_n;
 		}
 	
 	private:

@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/19 14:59:04 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/05/11 17:53:05 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/05/12 15:16:54 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int	main(void)
 	for (int i = 0; i < (int)arrDup.size(); i++)
 		std::cout << "(arrDup) [" << i << "] " << arrDup[i] << std::endl;
 		
+
+	arrDup[12];
 	return 0;
 }
