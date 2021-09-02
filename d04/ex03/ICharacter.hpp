@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Sorcerer.cpp                                       :+:    :+:            */
+/*   ICharacter.hpp                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/01/05 23:11:03 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/01/06 17:28:02 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/08/31 14:45:38 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/08/31 19:29:12 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sorcerer.hpp"
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-Sorcerer::Sorcerer(std::string name)
-{
-	this->_name = name;
-	this->_type = "Sorcerer";
-	
-	std::cout << this->_name << ", " << this->_type << ", is born!" << std::endl;
-}
+#include "AMateria.hpp"
 
-std::ostream &operator <<(std::ostream &fd, const Sorcerer &Sorc)
+class ICharacter
 {
-	fd << "F : " << "keck" << " I : ";
-	return fd;
-}
+	public:
+		virtual ~ICharacter() {}
+		virtual std::string const &getName() const = 0;
+		virtual void equip(AMateria *m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter &target) = 0;
+};
 
-Sorcerer::~Sorcerer(void)
-{
-	
-}
+#endif // ICHARACTER_HPP

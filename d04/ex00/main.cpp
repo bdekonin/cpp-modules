@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/30 11:19:20 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/08/30 16:28:40 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/08/30 13:05:37 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,27 @@
 
 int main()
 {
-	const Animal **pets = new const Animal*[4];
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
 
-	pets[0] = new Dog();
-	pets[1] = new Dog();
-	pets[2] = new Cat();
-	pets[3] = new Cat();
+	delete meta;
+	delete j;
+	delete i;
 
-    Cat cat;
-    Cat copycat(cat);
-    Dog dog;
-    Dog copydog(dog);
-    std::cout << "**test"<< std::endl;
-    std::cout << cat.getBrain() << std::endl;
-    std::cout << copycat.getBrain() << std::endl;
-    std::cout << dog.getBrain() << std::endl;
-    std::cout << copydog.getBrain() << std::endl;
+	std::cout << std::endl;
+	
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
+	std::cout << wrongCat->getType() << " " << std::endl;
+	wrongCat->makeSound(); // will output the animal sound! because no virtual
+	wrongMeta->makeSound();
 
-	delete pets[0];
-	delete pets[1];
-	delete pets[2];
-	delete pets[3];
-	system("leaks a.out");
+
+	
 }

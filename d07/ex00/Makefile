@@ -6,29 +6,25 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/02/19 13:09:03 by bdekonin      #+#    #+#                  #
-#    Updated: 2021/02/19 13:55:30 by bdekonin      ########   odam.nl          #
+#    Updated: 2021/09/02 14:31:12 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-
-
+NAME = ex00
 SRC = main.cpp
-NAME = a.out
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
-# do not touch
-FLAGS = -Wall -Werror -Wextra
-GCC = clang++
-OFILES = $(SRC:.cpp=.o)
+all: re
 
-all: $(NAME)
+$(NAME):
+	clang++ $(FLAGS) $(SRC) -o $(NAME)
 
-$(NAME): $(SRC)
-	$(GCC) -o $(NAME) $(FLAGS) $(SRC)
-
-clean:
-	rm $(NAME)
+clean: fclean
 
 fclean:
-	rm $(NAME)
+	@/bin/rm -f $(NAME)
 
-re: fclean all
+re: fclean $(NAME)
+
+test: re
+	@./$(NAME)

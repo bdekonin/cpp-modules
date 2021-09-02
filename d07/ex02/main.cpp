@@ -6,30 +6,61 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/19 14:59:04 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/05/12 15:16:54 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/09/02 14:33:12 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
+#include <time.h>
+#include <iostream>
 
-int	main(void)
+#define MAX_VAL 750
+int main(int, char**)
 {
-	Array<int> arr(10);
+	Array<int> numbers(MAX_VAL);
+	int* mirror = new int[MAX_VAL];
+	srand(time(NULL));
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		const int value = rand();
+		numbers[i] = value;
+		mirror[i] = value;
+	}
+	//SCOPE
+	{
+		Array<int> tmp = numbers;
+		Array<int> test(tmp);
+	}
 
-	for (int i = 0; i < (int)arr.size(); i++)
-		arr[i] = i + i;
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		if (mirror[i] != numbers[i])
+		{
+			std::cerr << "didn't save the same value!!" << std::endl;
+			return 1;
+		}
+	}
+	try
+	{
+		numbers[-2] = 0;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		numbers[MAX_VAL] = 0;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
-	Array<int> arrDup = arr;
-	for (int i = 0; i < (int)arrDup.size(); i++)
-		arrDup[i] = 0;
-		
-	for (int i = 0; i < (int)arr.size(); i++)
-		std::cout << "(arr)\t [" << i << "] " << arr[i] << std::endl;
-	std::cout << std::endl;
-	for (int i = 0; i < (int)arrDup.size(); i++)
-		std::cout << "(arrDup) [" << i << "] " << arrDup[i] << std::endl;
-		
-
-	arrDup[12];
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		numbers[i] = rand();
+	}
+	delete [] mirror;//
 	return 0;
 }
