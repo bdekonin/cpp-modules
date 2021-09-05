@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/02 12:33:36 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/09/02 14:30:52 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/09/03 10:04:51 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Array
 		}
 
 		/* Operation overload */
-		Array<T> &operator = (const Array &e)
+		Array<T> &operator=(const Array &e)
 		{
 			this->_n = e._n;
 			delete this->_array;
@@ -52,7 +52,13 @@ class Array
 				this->_array[i] = e._array[i];
 			return *this;
 		}
-		T	&operator[](unsigned int i)
+		// T &operator[](unsigned int i)
+		// {
+		// 	if (i >= this->_n)
+		// 		throw std::exception();
+		// 	return (this->_array[i]);
+		// }
+		T &operator[](unsigned int i) const
 		{
 			if (i >= this->_n)
 				throw std::exception();

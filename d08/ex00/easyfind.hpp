@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   iter.hpp                                           :+:    :+:            */
+/*   easyfind.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/02/19 14:08:35 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/09/02 21:30:20 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/09/02 15:22:55 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/09/03 11:21:21 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
+// #include <exception>
 #include <iostream>
 
 template <typename T>
-void print_array(T const &data)
+int	easyfind(T &container, int num)
 {
-	std::cout << data << std::endl;
+	typename T::iterator it = std::find(container.begin(), container.end(), num);
+	// typename T::iterator it = std::find(container.begin(), container.end(), num);
+	if (it == container.end())
+		throw std::exception();
+	return (*it);
 }
 
-template<typename T>
-void iter(T *p, size_t length, void (*func)(T &))
-{
-	for (size_t i = 0; i < length; i++)
-		(*func)(p[i]);
-}
-template<typename T>
-void iter(T *p, size_t length, void (*func)(T const &))
-{
-	for (size_t i = 0; i < length; i++)
-		(*func)(p[i]);
-}
-
-#endif // ITER_HPP
+#endif // EASYFIND_HPP
