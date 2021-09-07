@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/04 12:23:39 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/09/07 12:01:55 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/09/07 12:52:28 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main()
     Span span(MAX);
     Span spany(MAX);
     
+    // span.addNumber(1);
     span.addNumber(v.begin(), v.end());
     spany.addNumber(v);
 
