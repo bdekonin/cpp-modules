@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/04 12:23:39 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/09/07 12:52:28 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/11/15 11:40:01 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,13 @@
 
 int main()
 {
-    std::srand(unsigned(std::time(nullptr)));
-    std::vector<int> v(MAX);
-    std::generate(v.begin(), v.end(), std::rand);
+    Span sp = Span(5);
 
-    Span span(MAX);
-    Span spany(MAX);
-    
-    // span.addNumber(1);
-    span.addNumber(v.begin(), v.end());
-    spany.addNumber(v);
-
-    span.print();
-    spany.print();
-    
+    sp.addNumber(5);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
 }

@@ -6,14 +6,13 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/02 15:22:55 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/09/20 07:43:58 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/11/15 10:35:43 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
-// #include <exception>
 #include <iostream>
 
 template <typename T>
