@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 08:14:45 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/09/20 11:10:46 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/11/16 13:09:36 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,25 @@
 # include <exception>
 # include <deque>
 
-template<typename T, class container = std::deque<T> >
+template<class T, class container = std::deque<T> >
 class MutantStack : public std::stack<T, container>
 {
 	public:
-		typedef typename container::iterator iterator;
+		typedef typename container::iterator iterator;	
+
 		MutantStack()
 		{
 		}
-		MutantStack(MutantStack const &copy)
+		MutantStack(const MutantStack &obj)
 		{
-			*this = copy;
+			*this = obj;
 		}
-		~MutantStack()
+		virtual ~MutantStack()
 		{
 		}
-		MutantStack&	operator=(MutantStack const &obj)
+		MutantStack&	operator=(MutantStack<T> &obj)
 		{
-			std::stack<T, container>::operator=(obj);
+			this->c = obj.c;
 			return (*this);
 		}
 		typename container::iterator begin()
