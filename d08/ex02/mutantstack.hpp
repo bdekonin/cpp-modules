@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 08:14:45 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/11/16 13:09:36 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/11/16 13:34:50 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <iostream>
 # include <exception>
 # include <deque>
+# include <list>
 
 template<class T, class container = std::deque<T> >
 class MutantStack : public std::stack<T, container>
@@ -35,7 +36,7 @@ class MutantStack : public std::stack<T, container>
 		virtual ~MutantStack()
 		{
 		}
-		MutantStack&	operator=(MutantStack<T> &obj)
+		MutantStack&	operator=(const MutantStack<T> &obj)
 		{
 			this->c = obj.c;
 			return (*this);
