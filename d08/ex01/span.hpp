@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/03 14:37:51 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/11/15 11:41:20 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/11/18 09:24:46 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ class Span
 			{
 				this->addNumber(vec.begin(), vec.end());
 			}
-		
 			int shortestSpan(void)
 			{
 				size_t size = this->_numbers.size();
@@ -121,15 +120,6 @@ class Span
 				
 				return (*max - *min);
 			}
-
-			void print(void)
-			{
-				std::vector<int> v = this->_numbers;
-				std::string test;
-				for (int i = 0; i < (int)v.size(); i++)
-					std::cout << "[" << i << "] " << v[i] << std::endl;
-			}
-		
 		private:
 			int	_n;
 			std::vector<int> _numbers;
