@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/03 14:37:51 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/11/18 09:24:46 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/11/26 10:28:27 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ class Span
 {
 	public:
 		/* Constructor  */
-			Span(int n)
+			Span(int n = 0)
 			: _n(n)
 			{
 			}
 
 		/* Destructor */
-			~Span()
+			virtual ~Span()
 			{
 			}
 
