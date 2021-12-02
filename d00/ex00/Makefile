@@ -6,26 +6,22 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/07/27 10:34:22 by bdekonin      #+#    #+#                  #
-#    Updated: 2021/02/19 13:23:49 by bdekonin      ########   odam.nl          #
+#    Updated: 2021/12/02 18:48:47 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
+NAME		=	megaphone
 
-NAME = megaphone
+CC			=	clang++
+SRCS		=	megaphone.cpp
+INCLUDES	=	includes
+FLAGS		=	-std=c++98 -Wall -Werror -Wextra
+RM			=	rm -rf
 
-SRCS = megaphone.cpp
+all:		$(NAME)
 
-OFILES = $(SRCS:.cpp=.o)
-
-FLAGS = -std=c++98 -Wall -Werror -Wextra
-
-all: $(NAME)
-
-$(NAME): $(OFILES)
-	@clang++ $(OFILES) -o $@
-
-%.o: %.cpp
-	clang++ $(FLAGS) -o $@ -c $<
+$(NAME):
+	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	@rm -f $(OFILES)
@@ -38,4 +34,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
