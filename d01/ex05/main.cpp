@@ -5,18 +5,23 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 16:50:40 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 20:46:15 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 14:49:56 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 14:50:14 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
-#include "Brain.hpp"
+#include "Karen.hpp"
 
-int main()
+int main(void)
 {
-	Human bob;
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
+	Karen karen;
+
+	karen.complain("info");
+	karen.complain("debug");
+	karen.complain("warning");
+	karen.complain("error");
+	karen.complain("456a5d56afds");
+	karen.complain("");
+
 	return (0);
 }

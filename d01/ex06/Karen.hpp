@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Brain.hpp                                          :+:    :+:            */
+/*   Karen.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 15:36:07 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 20:44:52 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 14:41:38 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 14:43:18 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-/*
-** Standard Library's
-*/
-# include <iostream>
-# include <string>
-# include <sstream>
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
-class Brain
+#include <string>
+
+class Karen
 {
 	public:
-		Brain(void);
-		~Brain(void);
-		void		setAddress(void);
-		std::string getAddress(void);
-		std::string identify(void);
-	private:
-		std::string _address;
+		/* Constructor  */
+		Karen();
 
+		/* Destructor */
+		virtual ~Karen();
+
+		// Methods
+		void complain(std::string level);
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
 };
 
-#endif
+#endif // KAREN_HPP

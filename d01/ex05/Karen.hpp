@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Zombie.hpp                                         :+:    :+:            */
+/*   Karen.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 09:40:18 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 11:12:57 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 14:41:38 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 14:43:18 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
-# include <string>
-# include <iostream>
+#include <string>
 
-class Zombie
+class Karen
 {
 	public:
-		Zombie(std::string name, std::string type);
-		~Zombie(void);
-		void			announce(void);
+		/* Constructor  */
+		Karen();
+
+		/* Destructor */
+		virtual ~Karen();
+
+		// Methods
+		void complain(std::string level);
 	private:
-		std::string		m_type;
-		std::string		m_name;
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
 };
 
-#endif
+#endif // KAREN_HPP

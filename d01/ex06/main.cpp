@@ -5,30 +5,23 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 08:30:21 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/29 17:53:10 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 14:49:56 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 15:09:18 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Karen.hpp"
+#include <iostream>
 
-int main(void)
+int main(int argc, char **argv)
 {
+	Karen karen;
+
+	if (argc != 2)
 	{
-		Weapon	club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+		std::cout << "You have to send [./a.out] [Level]" << std::endl;
+		return (1);
 	}
-	{
-		Weapon	club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+	karen.complain(argv[1]);
+	return (0);
 }

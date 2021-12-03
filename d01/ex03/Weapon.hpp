@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Human.cpp                                          :+:    :+:            */
+/*   Weapon.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 16:53:33 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 20:14:37 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 13:45:02 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 13:54:17 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
-#include "Brain.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-Human::Human(void)
-{
-}
+#include <string>
 
-Human::~Human(void)
+class Weapon
 {
-}
+	public:
+		/* Constructor  */
+		Weapon(std::string type);
 
-Brain Human::getBrain(void)
-{
-	return (this->m_brain);
-}
+		/* Destructor */
+		virtual ~Weapon();
+		// Methods
+		std::string const &getType() const;
+		void setType(std::string type);
+	private:
+		std::string _type;
+};
 
-std::string Human::identify(void)
-{
-	return (this->m_brain.identify());
-}
+#endif // WEAPON_HPP

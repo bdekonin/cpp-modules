@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   replace.cpp                                        :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 17:56:50 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/30 20:02:34 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/12/03 14:34:21 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ static void find_and_replace(std::string &buf, const std::string &replaceFrom, c
 	pos = buf.find(replaceFrom);
 	while (pos >= 0)
 	{
-		buf.replace(pos, replaceFrom.length(), replaceTo);
+		// buf.replace(pos, replaceFrom.length(), replaceTo);
+		buf.erase(pos, replaceFrom.length());
+		buf.insert(pos, replaceTo);
 		pos = buf.find(replaceFrom);
 	}
 }
@@ -62,6 +64,17 @@ int main(int argc, char **argv)
 	std::ifstream 	fileIn;
 	filename = argv[1];
 	std::ofstream 	fileOut(filename + ".replace");
+	if (std::string(argv[2]).empty())
+	{
+		std::cout << "s1 is empty!" << std::endl;
+		return (EXIT_FAILURE);
+	}
+	if (std::string(argv[3]).empty())
+	{
+		std::cout << "s2 is empty!" << std::endl;
+		return (EXIT_FAILURE);
+	}
+
 	if (!checkFile(argv[0], filename, &fileIn))
 		return (EXIT_FAILURE);
 

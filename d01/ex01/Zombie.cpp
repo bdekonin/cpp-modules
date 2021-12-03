@@ -5,29 +5,40 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 10:47:35 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 11:30:06 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 12:47:21 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 13:29:50 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name, std::string type)
+/* Constructor  */
+Zombie::Zombie(std::string name) : _name(name) { }
+Zombie::Zombie(void) { }
+
+/* Destructor */
+Zombie::~Zombie() { }
+
+// Methods
+void Zombie::announce()
 {
-    this->m_name = name;
-    this->m_type = type;
+	std::cout << "<" << this->_name << ">" << " BraiiiiiiinnnzzzZ..." << std::endl;
+}
+void Zombie::setName(std::string name)
+{
+	this->_name = name;
 }
 
-Zombie::~Zombie(void)
+void	randomChump(std::string name)
 {
-    std::cout << "Destructor Called" << std::endl;
-    return ;
+	Zombie 	zombie(name);
+
+	zombie.announce();
 }
 
-void Zombie::announce(void)
+Zombie* newZombie(std::string name)
 {
-    std::cout << "<" << this->m_name;
-    std::cout << " (" << this->m_type;
-    std::cout << ")> Braiiiiiiinnnssss..." << std::endl;
-    return ;
+    Zombie* newZombie = new Zombie(name);
+
+    return (newZombie);
 }

@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ex01.cpp                                           :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 07:22:46 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 15:45:19 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 13:04:20 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 13:32:26 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Zombie.hpp"
 
-void memoryLeak()
+int main(void)
 {
-	std::string* panther = new std::string("String panther");
+	Zombie *zombie;
+	
+	zombie = newZombie("Bob");
+	
+	zombie->announce();
+	delete zombie;
 
-	std::cout << *panther << std::endl;
-	delete panther;
+	zombie = zombieHorde(5, "Albert");
+	for (int i = 0; i < 5; i++)
+		zombie[i].announce();
+
+	delete[] zombie;
 }

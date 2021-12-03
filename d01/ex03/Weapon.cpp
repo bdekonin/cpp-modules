@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Brain.cpp                                          :+:    :+:            */
+/*   Weapon.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 17:02:13 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/29 08:18:01 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 13:45:48 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 13:54:14 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "Weapon.hpp"
 
-Brain::Brain(void)
+/* Constructor  */
+Weapon::Weapon(std::string type) : _type(type) { }
+
+/* Destructor */
+Weapon::~Weapon() { }
+
+// Methods
+std::string const &Weapon::getType() const
 {
-	setAddress();
+	return (this->_type);
 }
-Brain::~Brain(void)
+void Weapon::setType(std::string type)
 {
-}
-
-void
-Brain::setAddress(void)
-{
-    std::stringstream   buff;
-
-    buff << this;
-    this->_address = buff.str();
-    return ;
+	this->_type = type;
 }
 
-std::string
-Brain::getAddress(void)
-{
-    return (this->_address);
-}
-
-std::string
-Brain::identify(void)
-{
-    return (this->getAddress());
-}

@@ -5,25 +5,31 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 08:21:50 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/29 17:53:23 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 13:54:27 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 13:59:09 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANB_HPP
-#define HUMANB_HPP
+# define HUMANB_HPP
 
 #include "Weapon.hpp"
 
 class HumanB
 {
 	public:
+		/* Constructor  */
 		HumanB(std::string name);
-		void	attack();
-		void	setWeapon(Weapon &weapon); // only for HumanB
+
+		/* Destructor */
+		virtual ~HumanB();
+
+		// Methods
+		void attack();
+		void setWeapon(Weapon &weapon); // only for HumanB
 	private:
-		Weapon *m_weapon;
-		std::string m_name;
+		Weapon *_weapon;
+		std::string _name;
 };
 
 #endif // HUMANB_HPP

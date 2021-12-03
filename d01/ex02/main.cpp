@@ -5,27 +5,29 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/28 09:39:14 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 14:37:28 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 13:34:11 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 13:37:48 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieEvent.hpp"
-#include "Zombie.hpp"
+#include <iostream>
+
 
 int main(void)
 {
-	Zombie		*zombieOne;
-	Zombie		*zombieTwo;
-	ZombieEvent zombieEvent;
+	std::string string("HI THIS IS BRAIN");
+	
+	// Pointer to the string
+	std::string *stringPTR = &string;
 
-	zombieEvent.setZombieType("Walker");
-	zombieOne = zombieEvent.randomChump();
-	zombieOne->announce();
+	// Reference to the string
+	std::string &stringREF = string;
 
-	zombieEvent.setZombieType("Eater");
-	zombieTwo = zombieEvent.randomChump();
-	zombieTwo->announce();
-	delete zombieOne;
-	delete zombieTwo;
+	std::cout << "Address of string:    " << &string << std::endl;
+	std::cout << "Address of stringPTR: " << stringPTR << std::endl;
+	std::cout << "Address of stringREF: " << &stringREF << std::endl;
+
+	std::cout << "Value of string:      " << string << std::endl;
+	std::cout << "Value of stringPTR:   " << *stringPTR << std::endl;
+	std::cout << "Value of stringREF:   " << stringREF << std::endl;
 }
