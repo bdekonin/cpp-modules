@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 21:39:45 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/02 22:32:35 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/12/03 09:47:01 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,50 @@ class Contact
 {
 	public:
 		/* Constructor  */
-		Contact(void);
+		Contact(void)
+		{
+			
+		}
 
 		/* Destructor */
-		~Contact();
+		~Contact()
+		{
+			this->_firstName = "";
+			this->_lastName = "";
+			this->_nickName = "";
+			this->_phoneNumber = "";
+			this->_darkestSecret = "";
+		}
 
 		/* Member Functions */
-		
+		void addInformation(void)
+		{
+			this->_firstName = this->_getInput(FIRSTNAME);
+			this->_lastName = this->_getInput(LASTNAME);
+			this->_nickName = this->_getInput(NICKNAME);
+			this->_phoneNumber = this->_getInput(PHONE);
+			this->_darkestSecret = this->_getInput(SECRET);
+		}
+		std::string getFirstName() const
+		{
+			return this->_firstName;
+		}
+		std::string getLastName() const
+		{
+			return this->_lastName;
+		}
+		std::string getNickName() const
+		{
+			return this->_nickName;
+		}
+		std::string getPhoneNumber() const
+		{
+			return this->_phoneNumber;
+		}
+		std::string getDarkestSecret() const
+		{
+			return this->_darkestSecret;
+		}
 	private:
 		std::string _getInput(std::string prompt)
 		{
