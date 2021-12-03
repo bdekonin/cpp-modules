@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/03 14:49:56 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/03 15:09:18 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/12/03 15:12:34 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		std::cout << "You have to send [./a.out] [Level]" << std::endl;
+		std::cout << "You have to send [./karenFilter] [Level]" << std::endl;
 		return (1);
 	}
 	karen.complain(argv[1]);

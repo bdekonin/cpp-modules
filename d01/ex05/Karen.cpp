@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/03 14:43:20 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/03 14:55:27 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/12/03 15:12:54 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 #include "Karen.hpp"
 
 /* Constructor */
-Karen::Karen(void)
-{
-	std::cout << "Karen is born !" << std::endl;
-}
+Karen::Karen(void) { }
 
 /* Destructor */
-Karen::~Karen(void)
-{
-	std::cout << "Karen is dead !" << std::endl;
-}
+Karen::~Karen(void) { }
 
 /* Member function */
 void Karen::complain(std::string level)
