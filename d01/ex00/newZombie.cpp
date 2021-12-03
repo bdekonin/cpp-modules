@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   newZombie.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/03 13:04:20 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/03 13:11:25 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 12:43:01 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 13:07:55 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include "Zombie.hpp"
 
-int main(void)
+Zombie* newZombie(std::string name)
 {
-	Zombie *zombie;
-	
-	zombie = newZombie("Bob");
-	
-	zombie->announce();
-	delete zombie;
+    Zombie* newZombie = new Zombie(name);
+
+    return (newZombie);
 }

@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Zombie.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/03 13:04:20 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/03 13:11:25 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 12:35:14 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 13:27:09 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main(void)
+#include <string>
+#include <iostream>
+
+class Zombie
 {
-	Zombie *zombie;
-	
-	zombie = newZombie("Bob");
-	
-	zombie->announce();
-	delete zombie;
-}
+	public:
+		/* Constructor  */
+		Zombie();
+
+		/* Constructor  */
+		Zombie(std::string name);
+
+		/* Destructor */
+		virtual ~Zombie();
+
+		// Methods
+		void announce();
+	private:
+		std::string _name;
+};
+
+void 	randomChump(std::string name);
+Zombie* newZombie(std::string name);
+
+#endif // ZOMBIE_HPP

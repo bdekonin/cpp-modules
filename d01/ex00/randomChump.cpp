@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Pony.hpp                                           :+:    :+:            */
+/*   randomChump.cpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/27 22:20:57 by bdekonin      #+#    #+#                 */
-/*   Updated: 2020/07/28 09:13:18 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/12/03 12:49:27 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/12/03 13:03:03 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_HPP
-#define PONY_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-#include <string>
-
-
-class Pony
+void	randomChump(std::string name)
 {
-	public:
-		Pony(void);
-		~Pony(void);
-		void			setColor(std::string color);
-		void			setName(std::string color);
-		std::string		getColor(void);
-		std::string		getName(void);
-	private:
-		std::string name;
-		std::string color;
-};
+	Zombie 	zombie(name);
 
-void ponyOnTheStack(void);
-void ponyOnTheHeap(void);
-
-#endif
+	zombie.announce();
+}
