@@ -6,14 +6,14 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/12/03 13:05:29 by bdekonin      #+#    #+#                  #
-#    Updated: 2021/12/03 14:22:31 by bdekonin      ########   odam.nl          #
+#    Updated: 2021/12/03 16:32:36 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = a.out
 
-INC = Zombie.hpp
+INC = Weapon.hpp HumanA.hpp HumanA.hpp
 
 SRCS = 	HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 

@@ -6,14 +6,14 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/12/03 13:05:29 by bdekonin      #+#    #+#                  #
-#    Updated: 2021/12/03 15:12:30 by bdekonin      ########   odam.nl          #
+#    Updated: 2021/12/03 16:34:02 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = karenFilter
 
-INC = Zombie.hpp
+INC = Karen.hpp
 
 SRCS = 	Karen.cpp main.cpp
 

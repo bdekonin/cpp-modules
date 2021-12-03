@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/03 13:04:20 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/03 13:32:26 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/12/03 16:30:28 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(void)
 	
 	zombie->announce();
 	delete zombie;
+
 
 	zombie = zombieHorde(5, "Albert");
 	for (int i = 0; i < 5; i++)

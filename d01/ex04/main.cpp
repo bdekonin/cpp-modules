@@ -6,13 +6,14 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 17:56:50 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/03 14:34:21 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/12/03 16:40:15 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <fstream> // for creating the file
+#include <string.h> 
 
 /*
 ** using char * because i want to move the pointer by 2 so i dont have the ./

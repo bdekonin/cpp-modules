@@ -6,14 +6,14 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/12/03 13:05:29 by bdekonin      #+#    #+#                  #
-#    Updated: 2021/12/03 13:34:08 by bdekonin      ########   odam.nl          #
+#    Updated: 2021/12/03 16:32:45 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = a.out
 
-INC = Zombie.hpp
+INC = 
 
 SRCS = 	main.cpp
 

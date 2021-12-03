@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/03 13:55:30 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/03 13:57:23 by bdekonin      ########   odam.nl         */
+/*   Updated: 2021/12/03 16:42:45 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <iostream>
 
 /* Constructor */
-HumanA::HumanA(std::string name, Weapon& weapon)
-: _name(name), _weapon(weapon) { }
+HumanA::HumanA(std::string name, Weapon &weapon)
+: _weapon(weapon), _name(name) { }
 
 /* Destructor */
 HumanA::~HumanA() { }

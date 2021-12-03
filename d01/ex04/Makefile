@@ -5,34 +5,35 @@
 #                                                      +:+                     #
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/07/30 20:10:30 by bdekonin      #+#    #+#                  #
-#    Updated: 2020/07/30 20:14:37 by bdekonin      ########   odam.nl          #
+#    Created: 2021/12/03 13:05:29 by bdekonin      #+#    #+#                  #
+#    Updated: 2021/12/03 16:33:43 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
+
 NAME = replace
 
+INC = 
+
 SRCS = main.cpp
-OFILES = $(SRCS:.cpp=.o)
 
-FLAGS = -std=c++98 -Wall -Werror -Wextra
+OBJS = $(SRCS:.cpp=.o)
 
-all: $(NAME)
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-$(NAME): $(OFILES)
-	@clang++ $(OFILES) -o $@
+all : $(NAME) 
 
-%.o: %.cpp
-	clang++ $(FLAGS) -o $@ -c $<
+%.o : %.cpp $(INC)
+	clang++ -c $(CFLAGS) $< -o $(<:.cpp=.o) -g
 
-clean:
-	@rm -f $(OFILES)
-	@echo "Removed $(OFILES)"
+$(NAME) : $(OBJS)
+	clang++ $(CFLAGS) -o ${NAME} $(OBJS)
 
-fclean: clean
-	@rm -f $(NAME)
-	@echo "[INFO] Removed $(NAME)"
+clean : 
+	rm -f $(OBJS)
 
-re: fclean all
+fclean : clean
+	rm -f $(NAME)
 
-.PHONY: all clean fclean re
+re : fclean all
+.PHONY : all clean fclean re
