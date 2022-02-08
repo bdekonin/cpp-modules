@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ScavTrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/04 10:42:01 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/08 14:22:31 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/08 15:12:36 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/08 15:16:46 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
-int main(int argc, char **argv)
+ScavTrap::ScavTrap()
 {
-	if (argc < 4)
-	{
-		std::cout << "./a.out [Name] [Enemy] [Repair] [Damage]" << std::endl;
-		return (0);
-	}
-	ClapTrap robot(argv[1]);
-
-	robot.attack(argv[2]);
-
-	robot.beRepaired(atoi(argv[3]));
-	robot.takeDamage(atoi(argv[4]));
-	(void)argc;
+	std::cout << "Default ScavTrap constructor called." << std::endl;
 }

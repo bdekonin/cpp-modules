@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/04 10:42:01 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/08 14:22:31 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/08 14:26:23 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/08 15:11:41 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
-#include <iostream>
 
-int main(int argc, char **argv)
+class ScavTrap : public ClapTrap
 {
-	if (argc < 4)
-	{
-		std::cout << "./a.out [Name] [Enemy] [Repair] [Damage]" << std::endl;
-		return (0);
-	}
-	ClapTrap robot(argv[1]);
+	public:
+		/* Constructor  */
+		ScavTrap();
 
-	robot.attack(argv[2]);
+		/* Destructor */
+		virtual ~ScavTrap();
 
-	robot.beRepaired(atoi(argv[3]));
-	robot.takeDamage(atoi(argv[4]));
-	(void)argc;
-}
+		/* Copy constructor */
+		ScavTrap(const ScavTrap&);
+
+		/* Operation overload = */
+		ScavTrap& operator = (const ScavTrap& e);
+
+		// Methods
+		// ...
+	private:
+		// ...
+};
+
+#endif // SCAVTRAP_HPP
