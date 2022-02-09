@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 15:12:36 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 13:46:26 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/09 13:46:08 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ ScavTrap::~ScavTrap()
 }
 
 /* Copy constructor */
-ScavTrap::ScavTrap(const ScavTrap &obj)
+ScavTrap::ScavTrap(const ScavTrap&)
 {
-	*this = obj;
-	std::cout << "ScavTrap: Copy constructor called." << std::endl;
+	std::cout << "ScavTrap: Copy Constructor called." << std::endl;
 }
 
 /* Operation overload = */

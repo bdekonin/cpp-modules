@@ -6,7 +6,7 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/12/04 10:41:38 by bdekonin      #+#    #+#                  #
-#    Updated: 2022/02/09 12:19:23 by bdekonin      ########   odam.nl          #
+#    Updated: 2022/02/09 16:53:33 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = a.out
 
 INC = 
 
-SRCS = 	ClapTrap.cpp ScavTrap.cpp main.cpp
+SRCS = 	ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

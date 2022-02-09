@@ -1,45 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ClapTrap.hpp                                       :+:    :+:            */
+/*   DiamondTrap.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/04 10:26:25 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 11:31:00 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/09 13:48:25 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/09 17:45:56 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-# include <string>
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class ClapTrap
+#include <string>
+#include <iostream>
+
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public:
 		/* Constructor  */
-		ClapTrap();
-		ClapTrap(std::string name);
+		DiamondTrap();
+		DiamondTrap(std::string name);
 
 		/* Destructor */
-		virtual ~ClapTrap();
+		virtual ~DiamondTrap();
 
 		/* Copy constructor */
-		ClapTrap(const ClapTrap&);
+		DiamondTrap(const DiamondTrap &);
 
 		/* Operation overload = */
-		ClapTrap& operator = (const ClapTrap& e);
+		DiamondTrap& operator = (const DiamondTrap& e);
 
 		// Methods
-		void attack(std::string const &target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-	protected:
-		std::string	_name;
-		int			_hitPoints;
-		int			_energyPoints;
-		int  		_attackDamage;
+		void	whoAmI();
+	private:
+		std::string _name;
+		using	ScavTrap::attack;
 };
 
-#endif // CLAPTRAP_HPP
+#endif // DIAMONDTRAP_HPP

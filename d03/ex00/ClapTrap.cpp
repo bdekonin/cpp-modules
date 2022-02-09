@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/04 10:32:10 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/08 14:23:53 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/09 13:46:40 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,38 @@
 #define GREEN   "\033[32m"      /* Green */
 
 /* Constructor  */
+ClapTrap::ClapTrap()
+: _hitPoints(10), _energyPoints(10), _attackDamage(0)
+{
+	std::cout << "ClapTrap: Constructor Called." << std::endl;
+}
 ClapTrap::ClapTrap(std::string name)
 : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Constructor" << std::endl;
+	std::cout << "ClapTrap: Constructor Called." << std::endl;
 }
 
 /* Copy constructor */
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
 	*this = obj;
-	std::cout << "Constructor" << std::endl;
+	std::cout << "ClapTrap: Constructor Called." << std::endl;
 }
 
 /* Destructor */
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor" << std::endl;
+	std::cout << "ClapTrap: Destructor Called." << std::endl;
+}
+
+/* Operation overload = */
+ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
+{
+	this->_name = rhs._name;
+	this->_hitPoints = rhs._hitPoints;
+	this->_energyPoints = rhs._energyPoints;
+	this->_attackDamage = rhs._attackDamage;
+	return *this;
 }
 
 

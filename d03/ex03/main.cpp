@@ -6,26 +6,31 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/04 10:42:01 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 10:54:30 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/09 17:45:39 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 #include <iostream>
 
-int main(int argc, char **argv)
+int main(void)
 {
-	if (argc < 4)
-	{
-		std::cout << "./a.out [Name] [Enemy] [Repair] [Damage]" << std::endl;
-		return (0);
-	}
-	ClapTrap robot(argv[1]);
-	ClapTrap dude;
+	DiamondTrap	cp("Jean-Michel");
 
-	robot.attack(argv[2]);
+	cp.whoAmI();
+	cp.guardGate();
+	cp.highFivesGuys();
 
-	robot.beRepaired(atoi(argv[3]));
-	robot.takeDamage(atoi(argv[4]));
-	(void)argc;
+	// std::cout << "Hit Points : " << cp.getHitPoints() << " | Energy Points : " << cp.getEnergyPoints() << " | Attack Damage : " << cp.getAttackDamage() << std::endl;
+	// cp.attack("Bernadette");
+	// cp.takeDamage(50);
+	// cp.beRepaired(25);
+	// cp.takeDamage(50);
+	// cp.attack("Jean-Louis");
+	// cp.beRepaired(25);
+	// cp.attack("Fabrice");
+	// cp.takeDamage(50);
+	// cp.attack("Patrick");
 }

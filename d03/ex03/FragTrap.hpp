@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   FragTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/04 10:42:01 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 10:54:30 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/09 13:15:15 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/09 17:08:01 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+
 #include "ClapTrap.hpp"
-#include <iostream>
 
-int main(int argc, char **argv)
+class FragTrap : public virtual ClapTrap
 {
-	if (argc < 4)
-	{
-		std::cout << "./a.out [Name] [Enemy] [Repair] [Damage]" << std::endl;
-		return (0);
-	}
-	ClapTrap robot(argv[1]);
-	ClapTrap dude;
+	public:
+		/* Constructor  */
+		FragTrap();
+		FragTrap(std::string name);
 
-	robot.attack(argv[2]);
+		/* Destructor */
+		virtual ~FragTrap();
 
-	robot.beRepaired(atoi(argv[3]));
-	robot.takeDamage(atoi(argv[4]));
-	(void)argc;
-}
+		/* Copy constructor */
+		FragTrap(const FragTrap&);
+
+		/* Operation overload = */
+		FragTrap& operator = (const FragTrap& e);
+
+		// Methods
+		void highFivesGuys(void);
+	private:
+		// ...
+};
+
+#endif // FRAGTRAP_HPP

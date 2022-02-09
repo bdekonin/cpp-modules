@@ -6,12 +6,11 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 15:12:36 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 13:46:26 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/09 17:01:06 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-#include <iostream>
 
 /* Constructor */
 ScavTrap::ScavTrap()
@@ -41,7 +40,7 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(const ScavTrap &obj)
 {
 	*this = obj;
-	std::cout << "ScavTrap: Copy constructor called." << std::endl;
+	std::cout << "ScavTrap: Copy Constructor called." << std::endl;
 }
 
 /* Operation overload = */
