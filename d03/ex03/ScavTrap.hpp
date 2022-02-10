@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 14:26:23 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 17:01:32 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/10 14:42:36 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class ScavTrap : public virtual ClapTrap
 
 		// Methods
 		void guardGate();
-	private:
-		// ...
+		void attack(const std::string &target);
+
 };
 
 #endif // SCAVTRAP_HPP

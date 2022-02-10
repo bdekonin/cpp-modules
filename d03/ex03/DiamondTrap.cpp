@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/09 15:43:11 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 17:46:04 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/10 16:01:31 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* Constructor  */
 DiamondTrap::DiamondTrap()
 {
-	std::cout << "ClapTrap: Constructor Called." << std::endl;
+	std::cout << "🛠️ DiamondTrap: Constructor Called." << std::endl;
 	this->_name = "DiamondTrap_clap_name";
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
@@ -25,7 +25,7 @@ DiamondTrap::DiamondTrap()
 DiamondTrap::DiamondTrap(std::string name)
 : ClapTrap(name + "_clap_name")
 {
-	std::cout << "ClapTrap: Constructor Called." << std::endl;
+	std::cout << "🛠️ DiamondTrap: Constructor Called." << std::endl;
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_attackDamage = FragTrap::_attackDamage;
@@ -36,14 +36,14 @@ DiamondTrap::DiamondTrap(std::string name)
 /* Destructor */
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "ClapTrap: Destructor Called." << std::endl;
+	std::cout << "💣 DiamondTrap: Destructor Called." << std::endl;
 }
 
 /* Copy constructor */
 DiamondTrap::DiamondTrap(const DiamondTrap &obj)
 {
 	*this = obj;
-	std::cout << "ClapTrap: Constructor Called." << std::endl;
+	std::cout << "🛠️ DiamondTrap: Constructor Called." << std::endl;
 }
 
 /* Operation overload = */

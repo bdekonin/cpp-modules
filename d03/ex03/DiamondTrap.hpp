@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/09 13:48:25 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 17:45:56 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/10 11:45:46 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ class DiamondTrap : public ScavTrap, public FragTrap
 
 		// Methods
 		void	whoAmI();
+		using	ClapTrap::attack;
+
 	private:
 		std::string _name;
-		using	ScavTrap::attack;
 };
 
 #endif // DIAMONDTRAP_HPP

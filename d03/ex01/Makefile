@@ -6,7 +6,7 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/12/04 10:41:38 by bdekonin      #+#    #+#                  #
-#    Updated: 2022/02/09 12:19:23 by bdekonin      ########   odam.nl          #
+#    Updated: 2022/02/10 16:27:13 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS = 	ClapTrap.cpp ScavTrap.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+
 
 all : $(NAME) 
 

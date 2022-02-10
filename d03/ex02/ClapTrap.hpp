@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/04 10:26:25 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 11:31:00 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/09 17:08:07 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CLAPTRAP_HPP
 
 # include <string>
+# include <iostream>
 
 class ClapTrap
 {

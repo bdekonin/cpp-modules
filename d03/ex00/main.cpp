@@ -6,26 +6,38 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/04 10:42:01 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 10:54:30 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/10 16:17:15 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-int main(int argc, char **argv)
+#define RESET  "\x1B[0m"
+#define RED  "\x1B[31m"
+
+std::string returncolor(std::string input)
 {
-	if (argc < 4)
-	{
-		std::cout << "./a.out [Name] [Enemy] [Repair] [Damage]" << std::endl;
-		return (0);
-	}
-	ClapTrap robot(argv[1]);
-	ClapTrap dude;
+	return (RED + input + RESET);
+}
 
-	robot.attack(argv[2]);
+int main(void)
+{
+	ClapTrap	cp(returncolor("Faruk"));
 
-	robot.beRepaired(atoi(argv[3]));
-	robot.takeDamage(atoi(argv[4]));
-	(void)argc;
+	cp.attack(returncolor("Bert"));
+	cp.takeDamage(5);
+	cp.beRepaired(5);
+	cp.takeDamage(8);
+	cp.attack(returncolor("Mithras"));
+	cp.beRepaired(1);
+	cp.beRepaired(1);
+	cp.beRepaired(1);
+	cp.attack("Ferbert");
+	cp.takeDamage(4);
+	cp.beRepaired(1);
+	cp.beRepaired(1);
+	// cp.beRepaired(1); // uncomment to see ClapTrap tired
+	// cp.takeDamage(3); // uncomment to see ClapTrap dead
+	cp.attack("Jan");
 }

@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/04 10:42:01 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/09 17:45:39 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/10 16:03:08 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,29 @@
 #include "DiamondTrap.hpp"
 #include <iostream>
 
+#define RESET  "\x1B[0m"
+#define RED  "\x1B[31m"
+
+std::string returncolor(std::string input)
+{
+	return (RED + input + RESET);
+}
+
 int main(void)
 {
-	DiamondTrap	cp("Jean-Michel");
+	DiamondTrap	cp(returncolor("Lars"));
 
 	cp.whoAmI();
 	cp.guardGate();
 	cp.highFivesGuys();
 
-	// std::cout << "Hit Points : " << cp.getHitPoints() << " | Energy Points : " << cp.getEnergyPoints() << " | Attack Damage : " << cp.getAttackDamage() << std::endl;
-	// cp.attack("Bernadette");
-	// cp.takeDamage(50);
-	// cp.beRepaired(25);
-	// cp.takeDamage(50);
-	// cp.attack("Jean-Louis");
-	// cp.beRepaired(25);
-	// cp.attack("Fabrice");
-	// cp.takeDamage(50);
-	// cp.attack("Patrick");
+	cp.attack(returncolor("Bob"));
+	cp.takeDamage(50);
+	cp.beRepaired(25);
+	cp.takeDamage(50);
+	cp.attack(returncolor("Kees"));
+	cp.beRepaired(25);
+	cp.attack(returncolor("Rowan"));
+	cp.takeDamage(50);
+	cp.attack(returncolor("Luke"));
 }
