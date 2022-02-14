@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/30 12:59:05 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/08/30 13:01:33 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/14 21:18:15 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,26 @@ class WrongCat : public WrongAnimal
 	public:
 		/* Constructor  */
 		WrongCat()
+		: WrongAnimal("WrongCat")
 		{
-			this->_type = "WrongCat";
 		}
 
 		/* Destructor */
-		~WrongCat()
+		virtual ~WrongCat()
 		{
 		}
 
 		/* Copy constructor */
 		WrongCat(const WrongCat &e)
+		: WrongAnimal(e)
 		{
-			this->_type = e._type;
 		}
 
 		/* Operation overload = */
-		WrongCat& operator = (const WrongCat &e)
+		WrongCat &operator = (const WrongCat &e)
 		{
 			this->_type = e._type;
 			return *this;
-		}
-
-		// Methods
-		void makeSound() const
-		{
-			std::cout << "I am an WrongCat .... " << std::endl;
 		}
 	private:
 		// ...

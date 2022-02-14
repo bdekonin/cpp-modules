@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/30 11:35:39 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/08/30 12:33:13 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/14 20:55:18 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ class Cat : public Animal
 	public:
 		/* Constructor  */
 		Cat()
+		: Animal("Cat")
 		{
-			this->_type = "Cat";
 		}
 
 		/* Destructor */
-		~Cat()
+		virtual ~Cat()
 		{
 		}
 
 		/* Copy constructor */
 		Cat(const Cat &e)
+		: Animal(e)
 		{
-			this->_type = e._type;
 		}
 
 		/* Operation overload = */
@@ -40,12 +40,6 @@ class Cat : public Animal
 		{
 			this->_type = e._type;
 			return *this;
-		}
-
-		// Methods
-		void makeSound() const
-		{
-			std::cout << "I am an Cat .... " << std::endl;
 		}
 	private:
 		// ...
