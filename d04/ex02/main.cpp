@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/30 11:19:20 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/08/31 18:40:01 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/16 11:48:59 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,24 @@
 
 int main()
 {
-	const Animal **pets = new const Animal*[4];
+    Animal * animals[100];
 
-	pets[0] = new Dog();
-	pets[1] = new Dog();
-	pets[2] = new Cat();
-	pets[3] = new Cat();
+    for (int i = 0; i < 100; i += 2) {
+        animals[i] = new Dog();
+        animals[i + 1] = new Cat();
+    }
 
-    Cat cat;
-    Cat copycat(cat);
-    Dog dog;
-    Dog copydog(dog);
-    std::cout << "**test"<< std::endl;
-    std::cout << cat.getBrain() << std::endl;
-    std::cout << copycat.getBrain() << std::endl;
-    std::cout << dog.getBrain() << std::endl;
-    std::cout << copydog.getBrain() << std::endl;
+    for (int i = 0; i < 100; i++)
+        animals[i]->makeSound();
+        
+    for (int i = 0; i < 100; i++)
+        delete animals[i];
+    
+    std::cout << std::endl;
+    
+    Cat basic;
+	Cat tmp = basic;
 
-	delete pets[0];
-	delete pets[1];
-	delete pets[2];
-	delete pets[3];
-	system("leaks a.out");
+    std::cout << std::endl;
+    system("leaks a.out");
 }

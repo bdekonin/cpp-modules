@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/30 10:47:18 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/08/31 14:02:33 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/16 11:47:15 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,39 +23,41 @@ class Animal
 		Animal()
 		{
 			this->_type = "Animal";
+			std::cout << this->_type << " has been born." << std::endl;
 		}
-
+		Animal(std::string type)
+		{
+			this->_type = type;
+			std::cout << this->_type << " has been born." << std::endl;
+		}
 		/* Copy constructor */
 		Animal(const Animal &e)
 		{
 			this->_type = e._type;
+			std::cout << this->_type << " has been born." << std::endl;
 		}
-		std::string _type;
 
+		/* Operation overload = */
+		Animal& operator = (const Animal &e)
+		{
+			this->_type = e._type;
+			return *this;
+		}
+		
 	public:
 		/* Destructor */
 		virtual ~Animal()
 		{
-		}
-		
-		/* Operation overload = */
-		Animal& operator =(const Animal &e)
-		{
-			this->_type = e._type;
-			return *this;
+			std::cout << this->_type << " has died." << std::endl;
 		}
 
 		// Methods
 		virtual void makeSound() const
 		{
-			std::cout << "I am an animal .... " << std::endl;
+			std::cout << "I am an " << this->_type << " .... " << std::endl;
 		}
-		std::string getType() const
-		{
-			return this->_type;
-		}
-	private:
-		// ...
+	protected:
+		std::string _type;
 };
 
 #endif // ANIMAL_HPP
