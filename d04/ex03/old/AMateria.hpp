@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/02/16 12:10:20 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/17 21:11:51 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/08/31 14:08:21 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/08/31 15:29:22 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,40 @@
 # define AMATERIA_HPP
 
 #include <string>
-# include "ICharacter.hpp"
-#include <iostream>
+#include "ICharacter.hpp"
 
 class AMateria
 {
 	public:
 		/* Constructor  */
-		AMateria()
-		: _type("")
-		{
-		}
-		AMateria(std::string const & type)
+		AMateria(std::string const &type)
 		: _type(type)
 		{
 		}
 
 		/* Destructor */
-		virtual ~AMateria()
-		{
-		}
+		~AMateria();
 
 		/* Copy constructor */
 		AMateria(const AMateria &e)
+		: _type(e.getType())
 		{
-			*this = e;
 		}
 
 		/* Operation overload = */
-		AMateria& operator = (const AMateria& e)
+		AMateria& operator = (const AMateria &e)
 		{
-			this->_type = e._type;
+			// this->_type = e.getType();
 			return *this;
 		}
 
 		// Methods
-		std::string const & getType() const
+		std::string const &getType() const // Returns the materia type
 		{
 			return this->_type;
 		}
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter &target)
-		{
-			std::cout << this->_type << " used on " << target.getName() << std::endl;
-		}
+		virtual AMateria *clone() const = 0;
+		virtual void use(ICharacter &target);
 	protected:
 		std::string _type;
 };

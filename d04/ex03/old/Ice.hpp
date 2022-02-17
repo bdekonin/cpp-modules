@@ -1,46 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cure.hpp                                           :+:    :+:            */
+/*   Ice.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/02/16 15:18:48 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/16 15:55:55 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/08/31 14:31:04 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/08/31 15:30:46 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
-# include <iostream>
+#include "AMateria.hpp"
+#include <iostream>
 
-class Cure : public AMateria
+class Ice : public AMateria
 {
 	public:
 		/* Constructor  */
-		Cure()
-		: AMateria("cure")
+		Ice()
+		: AMateria("ice")
 		{
-		}
-		Cure &operator = (const Cure &e)
-		{
-			(void)e;
-			return *this;
 		}
 		
+		/* Destructor */
+		~Ice();
 
-		/* Methods */
+		/* Copy constructor */
+		Ice(const Ice &e)
+		: AMateria(e.getType())
+		{
+			*this = e;
+		}
+
+		/* Operation overload = */
+		Ice& operator = (const Ice &e)
+		{
+			(void)e;
+			return (*this);
+		}
+
+		// Methods
 		AMateria *clone() const
 		{
-			return new Cure();
+			return new Ice();
 		}
 		void use(ICharacter &target)
 		{
-			std::cout << "* heals " << target.getName() << " *" << std::endl;
+			std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 		}
+	private:
+		// ...
 };
 
-#endif // CURE_HPP
+#endif // ICE_HPP

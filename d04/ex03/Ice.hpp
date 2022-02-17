@@ -5,16 +5,17 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/31 14:31:04 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/08/31 15:30:46 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/16 13:29:30 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/17 21:05:32 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICE_HPP
 # define ICE_HPP
 
-#include "AMateria.hpp"
-#include <iostream>
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
+# include <iostream>
 
 class Ice : public AMateria
 {
@@ -24,25 +25,8 @@ class Ice : public AMateria
 		: AMateria("ice")
 		{
 		}
-		
-		/* Destructor */
-		~Ice();
 
-		/* Copy constructor */
-		Ice(const Ice &e)
-		: AMateria(e.getType())
-		{
-			*this = e;
-		}
-
-		/* Operation overload = */
-		Ice& operator = (const Ice &e)
-		{
-			(void)e;
-			return (*this);
-		}
-
-		// Methods
+		/* Methods */
 		AMateria *clone() const
 		{
 			return new Ice();
@@ -51,8 +35,6 @@ class Ice : public AMateria
 		{
 			std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 		}
-	private:
-		// ...
 };
 
 #endif // ICE_HPP

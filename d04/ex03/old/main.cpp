@@ -5,37 +5,15 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/02/17 20:06:09 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/17 21:12:08 by bdekonin      ########   odam.nl         */
+/*   Created: 2021/08/31 14:35:08 by bdekonin      #+#    #+#                 */
+/*   Updated: 2021/08/31 14:35:23 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
-#include "Character.hpp"
 #include "Ice.hpp"
-#include "Cure.hpp"
-// #include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
 
-int main() 
+int main(void)
 {
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete bob;
-	delete me;
-	delete src;
-
-	system("leaks a.out");
-	return 0;
+	
 }
