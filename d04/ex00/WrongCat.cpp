@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
+/*   WrongCat.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/30 10:53:54 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/18 16:15:25 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/18 16:12:16 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/18 16:13:13 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "WrongCat.hpp"
 
-# include "Animal.hpp"
-
-class Dog : public Animal
+/* Constructor */
+WrongCat::WrongCat()
+: WrongAnimal("WrongCat")
 {
-	public:
-		/* Constructor  */
-		Dog();
+}
 
-		/* Destructor */
-		virtual ~Dog();
+/* Destructor */
+WrongCat::~WrongCat()
+{
+}
 
-		/* Copy constructor */
-		Dog(const Dog &e);
+/* Copy constructor */
+WrongCat::WrongCat(const WrongCat &e)
+: WrongAnimal(e)
+{
+}
 
-		/* Operation overload = */
-		Dog &operator = (const Dog &e);
-	private:
-		// ...
-};
-
-#endif // DOG_HPP
+/* Operation overload = */
+WrongCat &WrongCat::operator = (const WrongCat &e)
+{
+	this->_type = e._type;
+	return *this;
+}

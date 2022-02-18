@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
+/*   Dog.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/30 10:53:54 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/18 16:15:25 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/18 15:47:53 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/18 16:02:31 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Dog.hpp"
 
-# include "Animal.hpp"
-
-class Dog : public Animal
+/* Constructor */
+Dog::Dog()
+: Animal("Dog")
 {
-	public:
-		/* Constructor  */
-		Dog();
+}
 
-		/* Destructor */
-		virtual ~Dog();
+/* Destructor */
+Dog::~Dog()
+{
+}
 
-		/* Copy constructor */
-		Dog(const Dog &e);
+/* Copy constructor */
+Dog::Dog(const Dog &e)
+: Animal(e)
+{
+}
 
-		/* Operation overload = */
-		Dog &operator = (const Dog &e);
-	private:
-		// ...
-};
-
-#endif // DOG_HPP
+/* Operation overload = */
+Dog &Dog::operator = (const Dog &e)
+{
+	this->_type = e._type;
+	return *this;
+}
