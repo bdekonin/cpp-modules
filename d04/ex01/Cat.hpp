@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/30 11:35:39 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/08/30 16:20:49 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/16 10:49:08 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,25 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
-# include "Brain.hpp"
 
 class Cat : public Animal
 {
 	public:
 		/* Constructor  */
 		Cat()
+		: Animal("Cat")
 		{
-			this->_type = "Cat";
-			this->_brain = new Brain();
 		}
 
 		/* Destructor */
-		~Cat()
+		virtual ~Cat()
 		{
-			delete this->_brain;
 		}
 
 		/* Copy constructor */
 		Cat(const Cat &e)
+		: Animal(e)
 		{
-			this->_type = e._type;
-			this->_brain = new Brain();
-			*this->_brain = *e._brain;
-			std::cout << "deep copy of the cat is done !! " << std::endl;
-			std::cout<<"Copy constructor called"<< std::endl;
 		}
 
 		/* Operation overload = */
@@ -48,18 +41,8 @@ class Cat : public Animal
 			this->_type = e._type;
 			return *this;
 		}
-
-		// Methods
-		void makeSound() const
-		{
-			std::cout << "I am an Cat .... " << std::endl;
-		}
-		const Brain *getBrain() const
-		{
-			return this->_brain;
-		}
 	private:
-		Brain *_brain;
+		Brain _brain;
 };
 
 #endif // CAT_HPP

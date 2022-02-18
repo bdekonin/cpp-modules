@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/30 10:53:54 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/08/30 16:18:49 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/16 10:35:25 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,19 @@ class Dog : public Animal
 	public:
 		/* Constructor  */
 		Dog()
+		: Animal("Dog")
 		{
-			this->_type = "Dog";
-			this->_brain = new Brain();
 		}
 
 		/* Destructor */
-		~Dog()
+		virtual ~Dog()
 		{
-			delete this->_brain;
 		}
 
 		/* Copy constructor */
 		Dog(const Dog &e)
+		: Animal(e)
 		{
-			this->_type = e._type;
-			this->_brain = new Brain();
-			*this->_brain = *e._brain;
-			std::cout << "deep copy of the cat is done !! " << std::endl;
-			std::cout << "Copy constructor called" << std::endl;
 		}
 
 		/* Operation overload = */
@@ -48,18 +42,8 @@ class Dog : public Animal
 			this->_type = e._type;
 			return *this;
 		}
-
-		// Methods
-		void makeSound() const
-		{
-			std::cout << "I am an Dog .... " << std::endl;
-		}
-		const Brain *getBrain() const
-		{
-			return this->_brain;
-		}
 	private:
-		Brain *_brain;
+		Brain _brain;
 };
 
 #endif // DOG_HPP

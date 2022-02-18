@@ -5,15 +5,14 @@
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/30 13:18:42 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/08/30 14:22:47 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/16 09:53:54 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/16 10:22:25 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
-#include <iostream>
 #include <string>
 
 class Brain
@@ -22,35 +21,37 @@ class Brain
 		/* Constructor  */
 		Brain()
 		{
-			std::cout << "Brain Class Constructed" << std::endl;
+			std::cout << "Brain constructed" << std::endl;
 			this->_ideas = new std::string[100];
 		}
 
 		/* Destructor */
-		~Brain()
+		virtual ~Brain()
 		{
-			std::cout << "Brain Class Destructed" << std::endl;
-			delete [] this->_ideas;
+			std::cout << "Brain destructed" << std::endl;
+			delete[] this->_ideas;
 		}
 
 		/* Copy constructor */
 		Brain(const Brain &e)
 		{
-			for (size_t i = 0; i < 100; i++)
+			std::cout << "Brain copy constructed" << std::endl;
+			this->_ideas = new std::string[100];
+			for (int i = 0; i < 100; i++)
 				this->_ideas[i] = e._ideas[i];
 		}
 
 		/* Operation overload = */
-		Brain& operator = (const Brain &e)
+		Brain& operator = (const Brain& e)
 		{
-			for (size_t i = 0; i < 100; i++)
+			for (int i = 0; i < 100; i++)
 				this->_ideas[i] = e._ideas[i];
 			return *this;
 		}
 
 		// Methods
 		// ...
-	protected: // not private or else copy contructor wont work
+	private:
 		std::string *_ideas;
 };
 
