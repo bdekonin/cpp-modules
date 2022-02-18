@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.hpp                                            :+:    :+:            */
+/*   WrongCat.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/30 11:35:39 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/18 18:45:03 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/18 16:12:16 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/18 16:13:13 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "WrongCat.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Cat : public Animal
+/* Constructor */
+WrongCat::WrongCat()
+: WrongAnimal("WrongCat")
 {
-	public:
-		/* Constructor  */
-		Cat();
+}
 
-		/* Destructor */
-		virtual ~Cat();
+/* Destructor */
+WrongCat::~WrongCat()
+{
+}
 
-		/* Copy constructor */
-		Cat(const Cat &e);
+/* Copy constructor */
+WrongCat::WrongCat(const WrongCat &e)
+: WrongAnimal(e)
+{
+}
 
-		/* Operation overload = */
-		Cat &operator = (const Cat &e);
-	private:
-		Brain _brain;
-};
-
-#endif // CAT_HPP
+/* Operation overload = */
+WrongCat &WrongCat::operator = (const WrongCat &e)
+{
+	this->_type = e._type;
+	return *this;
+}

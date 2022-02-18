@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 09:53:54 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/16 10:22:25 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/18 18:33:15 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,22 @@
 # define BRAIN_HPP
 
 #include <string>
+#include <iostream>
 
 class Brain
 {
 	public:
 		/* Constructor  */
-		Brain()
-		{
-			std::cout << "Brain constructed" << std::endl;
-			this->_ideas = new std::string[100];
-		}
+		Brain();
 
 		/* Destructor */
-		virtual ~Brain()
-		{
-			std::cout << "Brain destructed" << std::endl;
-			delete[] this->_ideas;
-		}
+		virtual ~Brain();
 
 		/* Copy constructor */
-		Brain(const Brain &e)
-		{
-			std::cout << "Brain copy constructed" << std::endl;
-			this->_ideas = new std::string[100];
-			for (int i = 0; i < 100; i++)
-				this->_ideas[i] = e._ideas[i];
-		}
+		Brain(const Brain &e);
 
 		/* Operation overload = */
-		Brain& operator = (const Brain& e)
-		{
-			for (int i = 0; i < 100; i++)
-				this->_ideas[i] = e._ideas[i];
-			return *this;
-		}
+		Brain& operator = (const Brain& e);
 
 		// Methods
 		// ...

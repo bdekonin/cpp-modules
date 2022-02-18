@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/30 12:54:40 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/14 21:11:39 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/18 16:10:47 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,42 +20,20 @@ class WrongAnimal
 {
 	public:
 		/* Constructor  */
-		WrongAnimal()
-		{
-			this->_type = "WrongAnimal";
-			std::cout << this->_type << " has been born." << std::endl;
-		}
-		WrongAnimal(std::string type)
-		{
-			this->_type = type;
-			std::cout << this->_type << " has been born." << std::endl;
-		}
+		WrongAnimal();
+		WrongAnimal(std::string type);
 
 		/* Destructor */
-		virtual ~WrongAnimal()
-		{
-			std::cout << this->_type << " has died." << std::endl;
-		}
+		virtual ~WrongAnimal();
 
 		/* Copy constructor */
-		WrongAnimal(const WrongAnimal &e)
-		{
-			this->_type = e._type;
-			std::cout << this->_type << " has been born." << std::endl;
-		}
+		WrongAnimal(const WrongAnimal &e);
 		
 		/* Operation overload = */
-		WrongAnimal& operator = (const WrongAnimal &e)
-		{
-			this->_type = e._type;
-			return *this;
-		}
+		WrongAnimal& operator = (const WrongAnimal &e);
 
 		// Methods
-		virtual void makeSound() const
-		{
-			std::cout << "I am an " << this->_type << " .... " << std::endl;
-		}
+		virtual void makeSound() const;
 	protected:
 		std::string _type;
 };

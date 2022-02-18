@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/30 10:47:18 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/16 11:47:15 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/18 19:04:06 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,42 +20,21 @@ class Animal
 {
 	protected:
 		/* Constructor  */
-		Animal()
-		{
-			this->_type = "Animal";
-			std::cout << this->_type << " has been born." << std::endl;
-		}
-		Animal(std::string type)
-		{
-			this->_type = type;
-			std::cout << this->_type << " has been born." << std::endl;
-		}
+		Animal();
+		Animal(std::string type);
+		
 		/* Copy constructor */
-		Animal(const Animal &e)
-		{
-			this->_type = e._type;
-			std::cout << this->_type << " has been born." << std::endl;
-		}
+		Animal(const Animal &e);
 
 		/* Operation overload = */
-		Animal& operator = (const Animal &e)
-		{
-			this->_type = e._type;
-			return *this;
-		}
+		Animal& operator = (const Animal &e);
 		
 	public:
 		/* Destructor */
-		virtual ~Animal()
-		{
-			std::cout << this->_type << " has died." << std::endl;
-		}
+		virtual ~Animal();
 
 		// Methods
-		virtual void makeSound() const
-		{
-			std::cout << "I am an " << this->_type << " .... " << std::endl;
-		}
+		virtual void makeSound() const;
 	protected:
 		std::string _type;
 };

@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.hpp                                            :+:    :+:            */
+/*   Dog.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/30 11:35:39 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/18 18:45:03 by bdekonin      ########   odam.nl         */
+/*   Created: 2022/02/18 18:18:48 by bdekonin      #+#    #+#                 */
+/*   Updated: 2022/02/18 18:45:40 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "Dog.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Cat : public Animal
+/* Constructors */
+Dog::Dog()
+: Animal("Dog")
 {
-	public:
-		/* Constructor  */
-		Cat();
+}
 
-		/* Destructor */
-		virtual ~Cat();
+/* Destructor */
+Dog::~Dog()
+{
+}
 
-		/* Copy constructor */
-		Cat(const Cat &e);
+/* Copy Constructor */
+Dog::Dog(const Dog &e)
+: Animal(e)
+{
+	*this = e;
+}
 
-		/* Operation overload = */
-		Cat &operator = (const Cat &e);
-	private:
-		Brain _brain;
-};
-
-#endif // CAT_HPP
+/* Operation overload = */
+Dog& Dog::operator = (const Dog &e)
+{
+	this->_type = e._type;
+	this->_brain = e._brain;
+	return *this;
+}
