@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 12:10:20 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/17 21:11:51 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/19 16:55:06 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,43 +21,22 @@ class AMateria
 {
 	public:
 		/* Constructor  */
-		AMateria()
-		: _type("")
-		{
-		}
-		AMateria(std::string const & type)
-		: _type(type)
-		{
-		}
+		AMateria();
+		AMateria(std::string const & type);
 
 		/* Destructor */
-		virtual ~AMateria()
-		{
-		}
+		virtual ~AMateria();
 
 		/* Copy constructor */
-		AMateria(const AMateria &e)
-		{
-			*this = e;
-		}
+		AMateria(const AMateria &e);
 
 		/* Operation overload = */
-		AMateria& operator = (const AMateria& e)
-		{
-			this->_type = e._type;
-			return *this;
-		}
+		AMateria& operator = (const AMateria& e);
 
 		// Methods
-		std::string const & getType() const
-		{
-			return this->_type;
-		}
+		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter &target)
-		{
-			std::cout << this->_type << " used on " << target.getName() << std::endl;
-		}
+		virtual void use(ICharacter &target);
 	protected:
 		std::string _type;
 };

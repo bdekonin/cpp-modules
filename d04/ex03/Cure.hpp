@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:18:48 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/18 15:28:37 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/19 17:20:21 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,13 @@ class Cure : public AMateria
 {
 	public:
 		/* Constructor  */
-		Cure()
-		: AMateria("cure")
-		{
-		}
-		Cure &operator = (const Cure &e)
-		{
-			(void)e;
-			return *this;
-		}
-		
+		Cure();
+		Cure(const Cure &e);
+		Cure &operator = (const Cure &e);
 
 		/* Methods */
-		AMateria *clone() const
-		{
-			return new Cure();
-		}
-		void use(ICharacter &target)
-		{
-			std::cout << "* heals " << target.getName() << " *" << std::endl;
-		}
+		AMateria *clone() const;
+		void use(ICharacter &target);
 };
 
 #endif // CURE_HPP

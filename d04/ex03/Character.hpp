@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 19:13:02 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/17 20:52:36 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/19 17:08:57 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,78 +23,23 @@ class Character : public ICharacter
 {
 	public:
 		/* Constructor  */
-		Character()
-		: _name("")
-		{
-		}
-		Character(std::string name)
-		: _name(name)
-		{
-		}
+		Character();
+		Character(std::string name);
 
 		/* Destructor */
-		virtual ~Character()
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				if (_inventory[i])
-					delete _inventory[i];
-			}
-		}
+		virtual ~Character();
 
 		/* Copy constructor */
-		Character(const Character &e)
-		{
-			*this = e;
-		}
+		Character(const Character &e);
 
 		/* Operation overload = */
-		Character& operator = (const Character& e)
-		{
-			_name = e._name;
-			for (int i = 0; i < 4; i++)
-			{
-				if (_inventory[i])
-					delete _inventory[i];
-			}
-			for (int i = 0; i < 4; i++)
-				_inventory[i] = e._inventory[i]->clone();
-			return *this;
-		}
+		Character& operator = (const Character& e);
 
 		// Methods
-		std::string const & getName() const
-		{
-			return _name;
-		}
-		void equip(AMateria *m)
-		{
-			if (m == NULL)
-				return ;
-			for (int i = 0; i < 4; i++)
-			{
-				if (this->_inventory[i] == NULL)
-				{
-					this->_inventory[i] = m;
-					return ;
-				}
-			}
-			std::cout << this->_name << " is full." << std::endl;
-		}
-		void unequip(int idx)
-		{
-			if (idx < 0 || idx > 4)
-				return ;
-			this->_inventory[idx] = NULL;
-		}
-		void use(int idx, ICharacter &target)
-		{
-			if (idx < 0 || idx > 4)
-				return ;
-			if (this->_inventory[idx] == NULL)
-				return ;
-			this->_inventory[idx]->use(target);
-		}
+		std::string const & getName() const;
+		void equip(AMateria *m);
+		void unequip(int idx);
+		void use(int idx, ICharacter &target);
 	private:
 		std::string _name;
 		AMateria *_inventory[4];

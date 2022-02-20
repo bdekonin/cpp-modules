@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 20:06:09 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/17 21:12:08 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/19 17:45:26 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int main()
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
+	std::cout << "1" << std::endl;
 	tmp = src->createMateria("ice");
+	std::cout << "2" << std::endl;
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);

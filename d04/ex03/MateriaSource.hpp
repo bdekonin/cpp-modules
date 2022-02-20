@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 19:39:25 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/17 21:12:53 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/19 17:26:19 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,58 +20,20 @@ class MateriaSource : public IMateriaSource
 {
 	public:
 		/* Constructor  */
-		MateriaSource()
-		{
-		}
+		MateriaSource();
 
 		/* Destructor */
-		virtual ~MateriaSource()
-		{
-			for (int i = 0; i < 4; i++)
-				delete _materia[i];
-		}
+		virtual ~MateriaSource();
 
 		/* Copy constructor */
-		MateriaSource(const MateriaSource &e)
-		{
-			*this = e;
-		}
+		MateriaSource(const MateriaSource &e);
 
 		/* Operation overload = */
-		MateriaSource& operator = (const MateriaSource& rhs)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				delete _materia[i];
-				if (rhs._materia[i])
-					_materia[i] = rhs._materia[i]->clone();
-				else
-					_materia[i] = NULL;
-			}
-			return *this;
-		}
+		MateriaSource& operator = (const MateriaSource& rhs);
 
 		// Methods
-		void learnMateria(AMateria *m)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				if (!this->_materia[i])
-				{
-					this->_materia[i] = m->clone();
-					break ;
-				}
-			}
-		}
-		AMateria *createMateria(std::string const & type)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				if (this->_materia[i] && this->_materia[i]->getType() == type)
-					return this->_materia[i]->clone();
-			}
-			return NULL;
-		}
+		void learnMateria(AMateria *m);
+		AMateria *createMateria(std::string const & type);
 	private:
 		AMateria* _materia[4];
 };
