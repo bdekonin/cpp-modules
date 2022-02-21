@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/19 16:55:34 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/19 17:08:23 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/21 11:55:21 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@
 Character::Character()
 : _name("")
 {
+	std::cout << "Character created" << std::endl;
 }
 Character::Character(std::string name)
 : _name(name)
 {
+	std::cout << this->_name << " created" << std::endl;
 }
 
 /* Destructor */
 Character::~Character()
 {
+	std::cout << this->_name << " destroyed" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i])
@@ -36,6 +39,7 @@ Character::~Character()
 Character::Character(const Character &e)
 {
 	*this = e;
+	std::cout << this->_name << " copy constructed created" << std::endl;
 }
 
 /* Operation overload = */
@@ -60,7 +64,10 @@ std::string const &Character::getName() const
 void Character::equip(AMateria *m)
 {
 	if (m == NULL)
+	{
+		std::cout << "Character: NULL pointer" << std::endl;
 		return ;
+	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] == NULL)

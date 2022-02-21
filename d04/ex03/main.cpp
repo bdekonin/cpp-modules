@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 20:06:09 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/19 17:45:26 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/21 11:59:54 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ int main()
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
-	std::cout << "1" << std::endl;
-	tmp = src->createMateria("ice");
-	std::cout << "2" << std::endl;
+	tmp = src->createMateria("Ice");
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
+	tmp = src->createMateria("Cure");
+	src->createMateria("gert-jan");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
@@ -38,6 +37,6 @@ int main()
 	delete me;
 	delete src;
 
-	system("leaks a.out");
+	// system("leaks a.out");
 	return 0;
 }
