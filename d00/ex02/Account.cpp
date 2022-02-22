@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/03 12:14:51 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/03 12:26:04 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/22 12:17:46 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ Account::Account(int initial_deposit) : _amount(initial_deposit)
 	Account::_totalAmount += this->_amount;
 	_nbAccounts++;
 }
+/* First Constructed, last destructed
+** Source
+** https://stackoverflow.com/questions/31246000/why-destructors-are-not-called-in-reverse-order-for-array-of-objects/31246215
+** https://isocpp.org/wiki/faq/dtors#order-dtors-for-arrays
+*/
 Account::~Account(void)
 {
 	_displayTimestamp();
@@ -115,7 +120,7 @@ void Account::makeDeposit(int deposit)
 
 int Account::checkAmount(void) const 
 {
-	return (1);
+	return (this->_amount);
 }
 
 bool Account::makeWithdrawal(int withdrawal)
