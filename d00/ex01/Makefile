@@ -6,14 +6,14 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/07/27 10:34:22 by bdekonin      #+#    #+#                  #
-#    Updated: 2022/02/22 12:25:17 by bdekonin      ########   odam.nl          #
+#    Updated: 2022/02/22 12:52:57 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	phonebook
 
 CC			=	clang++
-SRCS		=	main.cpp
+SRCS		=	main.cpp Contact.cpp Phonebook.cpp
 OFILES		=	$(SRCS:.cpp=.o)
 INCLUDES	=	includes
 
