@@ -6,13 +6,14 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/03 09:44:55 by bdekonin      #+#    #+#                 */
-/*   Updated: 2021/12/03 12:04:10 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/22 12:34:51 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Phonebook.hpp"
 #include "Contact.hpp"
+#include <string.h>
 
 int main()
 {
@@ -24,11 +25,11 @@ int main()
 		std::cout << "Input: ";
 		std::getline(std::cin, command, '\n');
 
-		if (command == "add")
+		if (strcasecmp(command.c_str(), "add") == 0)
 			phonebook.add();
-		else if (command == "search")
+		else if (strcasecmp(command.c_str(), "search") == 0)
 			phonebook.search();
-		else if (command == "exit")
+		else if (strcasecmp(command.c_str(), "exit") == 0)
 			break ;
 	}
 }
