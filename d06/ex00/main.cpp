@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/23 15:38:55 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/23 17:50:55 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/23 18:17:18 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ char toChar(std::string &argument)
 	result = std::stoi(argument);
 	return static_cast<char> (result);
 }
+
+int toInt(std::string &argumetn)
 
 int main(int argc, char **argv)
 {
