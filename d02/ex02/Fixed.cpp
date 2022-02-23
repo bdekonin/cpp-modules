@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/22 13:55:32 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/22 18:03:33 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/23 11:23:36 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,22 @@ int Fixed::toInt(void) const
 }
 Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
+	std::cout << "min member function called" << std::endl;
 	return (a < b) ? a : b;
 }
 const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
 {
+	std::cout << "min const member function called" << std::endl;
 	return (a < b) ? a : b;
 }
 Fixed &Fixed::max(Fixed &a, Fixed &b)
 {
+	std::cout << "max member function called" << std::endl;
 	return (a > b) ? a : b;
 }
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
+	std::cout << "max const member function called" << std::endl;
 	return (a > b) ? a : b;
 }
 
@@ -114,23 +118,19 @@ bool Fixed::operator!=(const Fixed &cmp) const
 
 Fixed Fixed::operator+(const Fixed &cmp) const
 {
-	return (Fixed(this->_fixedPointValue + cmp._fixedPointValue));
+	return (Fixed(this->toFloat() + cmp.toFloat()));
 }
 Fixed Fixed::operator-(const Fixed &cmp) const
 {
-	return (Fixed(this->_fixedPointValue - cmp._fixedPointValue));
+	return(Fixed(this->toFloat() - cmp.toFloat()));
 }
 Fixed	Fixed::operator * (const Fixed& cmp) const // ?
 {
-	Fixed	ret;
-
-	ret.setRawBits((this->getRawBits() * cmp.getRawBits()) >> Fixed::_fractionalBits);
-	return (ret);
+	return(Fixed(this->toFloat() * cmp.toFloat()));
 }
-
 Fixed Fixed::operator/(const Fixed &cmp) const
 {
-	return (Fixed(this->_fixedPointValue / cmp._fixedPointValue));
+	return(Fixed(this->toFloat() / cmp.toFloat()));
 }
 
 Fixed &Fixed::operator++(void)
@@ -155,7 +155,6 @@ Fixed Fixed::operator--(int)
 	this->_fixedPointValue--;
 	return (tmp);
 }
-
 
 /* Overload << */
 std::ostream &operator<<(std::ostream &os, const Fixed &f)
