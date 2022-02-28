@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/23 15:38:55 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/23 18:17:18 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/02/28 14:01:48 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,62 @@ int getConversion(std::string& argument)
 
 char toChar(std::string &argument)
 {
-	int result = 0;
+	int	result = 0;
 
-	result = std::stoi(argument);
-	return static_cast<char> (result);
+	try
+	{
+		result = std::stoi(argument);
+		return (static_cast<char>(result));
+	}
+	catch (const std::exception &e)
+	{
+		throw (std::exception());
+	}
 }
 
-int toInt(std::string &argumetn)
+int toInt(std::string &argument)
+{
+	int	result = 0;
+
+	try
+	{
+		result = std::stoi(argument);
+		return (static_cast<int>(result));
+	}
+	catch (const std::exception &e)
+	{
+		throw (std::exception());
+	}
+}
+float toFloat(std::string &argument)
+{
+	float	result = 0.0f;
+
+	try
+	{
+		result = std::stof(argument);
+		return (static_cast<float>(result));
+	}
+	catch (const std::exception &e)
+	{
+		throw (std::exception());
+	}
+}
+
+double toDouble(std::string &argument)
+{
+	double	result = 0.0;
+
+	try
+	{
+		result = std::stod(argument);
+		return (static_cast<double>(result));
+	}
+	catch (const std::exception &e)
+	{
+		throw (std::exception());
+	}
+}
 
 int main(int argc, char **argv)
 {
@@ -92,35 +141,59 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	std::string argument = argv[1];
-	int ret = getConversion(argument);
+	// int ret = getConversion(argument);
 
-	char res = toChar(argument);
-	if (res >= 33 && res <= 126) // checks if character is printable
-		std::cout << "'" << res << "'" << std::endl;
-	else if (res == 127 || (res >= -128 && res < 33)) // checks if character is not printable
-		std::cout << NONDISPLAYABLE << std::endl;
-	else // conversion is non possible
-		std::cout << IMPOSSIBLE << std::endl;
-	
+	std::cout << "char: ";
+	try
+	{
+		char	res = toChar(argument);
 
-	// if (ret == INT)
-	// 	std::cout << "int: " << argument << std::endl;
-	// else if (ret == FLOAT)
-	// 	std::cout << "float: " << argument << std::endl;
-	// else if (ret == DOUBLE)
-	// 	std::cout << "double: " << argument << std::endl;
-	// else if (ret == CHAR)
-	// 	std::cout << "char: " << argument[0] << std::endl;
-	// else if (ret == MINUS_INF)
-	// 	std::cout << "float: " << "-inff" << std::endl;
-	// else if (ret == PLUS_INF)
-	// 	std::cout << "float: " << "+inff" << std::endl;
-	// else if (ret == NAN)
-	// 	std::cout << "float: " << "nan" << std::endl;
-	// else if (ret == NONE)
-	// 	std::cout << "impossible: " << ret << std::endl;
-	// else
-	// 	std::cout << "else: " << ret << std::endl;
-	
+		if (res >= 33 && res <= 126) // checks if character is printable
+			std::cout << "'" << res << "'" << std::endl;
+		else if (res == 127 || (res >= -128 && res < 33)) // checks if character is not printable
+			std::cout << NONDISPLAYABLE << std::endl;
+		else // conversion is non possible
+			std::cout << IMPOSSIBLE << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+
+	std::cout << "int: ";
+	try
+	{
+		int res = toInt(argument);
+		std::cout << res << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+
+	std::cout << "float: ";
+	try
+	{
+		float res = toFloat(argument);
+		std::cout << res << "f" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+
+	std::cout << "double: ";
+	try
+	{
+		double res = toDouble(argument);
+		std::cout << res << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return (1);
 }
