@@ -6,73 +6,16 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/23 15:38:55 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/02/28 14:01:48 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/01 12:30:44 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 #define NONDISPLAYABLE "Non displayable"
 #define IMPOSSIBLE "impossible"
-#define DIGITS "1234567890"
-
-# define INT 0
-# define FLOAT 1
-# define DOUBLE 2
-# define CHAR 3
-# define MINUS_INF 4
-# define PLUS_INF 5
-# define NAN 6
-# define NONE 7
-
-int getConversion(std::string& argument)
-{
-	/* Check if argument is any of these values */
-	if (argument == "-inf" || argument == "-inff")
-		return (MINUS_INF);
-	if (argument == "+inf" || argument == "+inff")
-		return (PLUS_INF);
-	if (argument == "nan" || argument == "nanf")
-		return (NAN);
-
-	/* Check if argument is a single number or a character */
-	if (argument.length() == 1)
-	{
-		if (isdigit(argument[0]))
-			return (INT);
-		return (CHAR);
-	}
-
-	/* Check if number is a negative or positive number */
-	int i = 0;
-	if (argument[i] == '-' || argument[i] == '+')
-		i++;
-
-	/* Check if argument is a number with decimals */
-	while (isdigit(argument[i]))
-		i++;
-	if (i == (int)argument.length())
-		return (INT);
-	if (argument[i] != '.')
-		return (NONE);
-
-	i++; /* Skip the '.' */
-
-	/* Check if argument is a number with decimals and an 'f' */
-	while (isdigit(argument[i]))
-		i++;
-	if (i == (int)argument.length())
-	{
-		argument.push_back('0'); /* Add a '0' to the end of the string when string is '12.' */
-		return (DOUBLE);
-	}
-	if (argument[i] != 'f')
-		return (NONE);
-	
-	/* String is a Float */
-	return (FLOAT);
-}
 
 char toChar(std::string &argument)
 {
@@ -80,7 +23,10 @@ char toChar(std::string &argument)
 
 	try
 	{
-		result = std::stoi(argument);
+		if (argument.length() == 1 && !isdigit(argument[0]))
+			result += argument[0];
+		else
+			result = std::stoi(argument);
 		return (static_cast<char>(result));
 	}
 	catch (const std::exception &e)
@@ -88,14 +34,16 @@ char toChar(std::string &argument)
 		throw (std::exception());
 	}
 }
-
 int toInt(std::string &argument)
 {
 	int	result = 0;
 
 	try
 	{
-		result = std::stoi(argument);
+		if (argument.length() == 1 && !isdigit(argument[0]))
+			result += argument[0];
+		else
+			result = std::stoi(argument);
 		return (static_cast<int>(result));
 	}
 	catch (const std::exception &e)
@@ -109,7 +57,10 @@ float toFloat(std::string &argument)
 
 	try
 	{
-		result = std::stof(argument);
+		if (argument.length() == 1 && !isdigit(argument[0]))
+			result += argument[0];
+		else
+			result = std::stof(argument);
 		return (static_cast<float>(result));
 	}
 	catch (const std::exception &e)
@@ -117,14 +68,16 @@ float toFloat(std::string &argument)
 		throw (std::exception());
 	}
 }
-
 double toDouble(std::string &argument)
 {
 	double	result = 0.0;
 
 	try
 	{
-		result = std::stod(argument);
+		if (argument.length() == 1 && !isdigit(argument[0]))
+			result += argument[0];
+		else
+			result = std::stod(argument);
 		return (static_cast<double>(result));
 	}
 	catch (const std::exception &e)
@@ -141,12 +94,37 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	std::string argument = argv[1];
-	// int ret = getConversion(argument);
 
+	if (argument == "-inf" || argument == "-inff")
+	{
+		std::cout << "char: " << IMPOSSIBLE << std::endl;
+		std::cout << "int: " << IMPOSSIBLE << std::endl;
+		std::cout << "float: " << "-inff" << std::endl;
+		std::cout << "double: " << "-inf" << std::endl;
+		return (0);
+	}
+	if (argument == "+inf" || argument == "+inff")
+	{
+		std::cout << "char: " << IMPOSSIBLE << std::endl;
+		std::cout << "int: " << IMPOSSIBLE << std::endl;
+		std::cout << "float: " << "+inff" << std::endl;
+		std::cout << "double: " << "+inf" << std::endl;
+		return (0);
+	}
+	if (argument == "nan" || argument == "nanf")
+	{
+		std::cout << "char: " << IMPOSSIBLE << std::endl;
+		std::cout << "int: " << IMPOSSIBLE << std::endl;
+		std::cout << "float: " << "nanf" << std::endl;
+		std::cout << "double: " << "nan" << std::endl;
+		return (0);
+	}
+
+	/* ************************************************************************** */
 	std::cout << "char: ";
 	try
 	{
-		char	res = toChar(argument);
+		char res = toChar(argument);
 
 		if (res >= 33 && res <= 126) // checks if character is printable
 			std::cout << "'" << res << "'" << std::endl;
@@ -157,10 +135,9 @@ int main(int argc, char **argv)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << IMPOSSIBLE << '\n';
 	}
-
-
+	/* ************************************************************************** */
 	std::cout << "int: ";
 	try
 	{
@@ -169,31 +146,39 @@ int main(int argc, char **argv)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << IMPOSSIBLE << '\n';
 	}
-
-
+	/* ************************************************************************** */
 	std::cout << "float: ";
 	try
 	{
 		float res = toFloat(argument);
-		std::cout << res << "f" << std::endl;
+		// std::cout << "gert: " << std::to_string(res) << std::endl;
+		if (std::to_string(res).find('.') != std::string::npos)
+			std::cout << std::fixed << std::setprecision(1) << res << "f" << std::endl;
+		else
+			std::cout << res << ".0" << "f" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << IMPOSSIBLE << '\n';
 	}
-
-
+	/* ************************************************************************** */
 	std::cout << "double: ";
 	try
 	{
 		double res = toDouble(argument);
-		std::cout << res << std::endl;
+		
+		// check if there is a . in the string
+		if (std::to_string(res).find('.') != std::string::npos)
+			std::cout << std::fixed << std::setprecision(1) << res << std::endl;
+		else
+			std::cout << res << ".0" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << IMPOSSIBLE << '\n';
 	}
+	/* ************************************************************************** */
 	return (1);
 }
