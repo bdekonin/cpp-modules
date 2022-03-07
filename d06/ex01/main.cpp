@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/01 13:17:25 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/01 14:53:24 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/07 10:45:46 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,14 @@ Data* deserialize(uintptr_t raw)
 
 int main(void)
 {
+	Data		data;
+
+	data.num = 8;
+
+	uintptr_t	serializePointer = serialize(&data);
+	Data		*deserializePointer = deserialize(serializePointer);
 	
+	std::cout << "serializePointer:   0x" << std::hex << serializePointer << " - " << data.num << std::endl;
+	std::cout << "deserializePointer: " << deserializePointer << " - " << deserializePointer->num << std::endl;
+	return (0);
 }
