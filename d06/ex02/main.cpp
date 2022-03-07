@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/07 11:50:39 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/07 14:53:56 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/07 16:58:10 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Base *generate()
 
 void	identify(Base& ptr)
 {
-	std::cout << "identify(): the real type of &ptr is: ";
+	std::cout << "identify(): &ptr: ";
 	try
 	{
 		A& a = dynamic_cast<A&>(ptr);
@@ -82,7 +82,7 @@ void	identify(Base& ptr)
 
 void	identify(Base* ptr)
 {
-	std::cout << "identify(): the real type of *ptr is: ";
+	std::cout << "identify(): *ptr: ";
 	A* a = dynamic_cast<A*>(ptr);
 	if (a)
 	{
