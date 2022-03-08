@@ -6,7 +6,7 @@
 #    By: bdekonin <bdekonin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/12/04 10:41:38 by bdekonin      #+#    #+#                  #
-#    Updated: 2022/03/07 13:32:58 by bdekonin      ########   odam.nl          #
+#    Updated: 2022/03/08 12:25:05 by bdekonin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = 	main.cpp Base.cpp A.cpp B.cpp C.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-# CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
 all : $(NAME) 
 
