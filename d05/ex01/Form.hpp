@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 15:11:21 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/08 16:11:05 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/09 11:23:57 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Form
 		/* Constructor  */
 		Form();
 		Form(std::string const &name, int gradeToSign, int gradeToExecute);
-		Form(std::string const &name, int gradeToSign, int gradeToExecute, bool signedForm);
 
 		/* Destructor */
 		virtual ~Form();

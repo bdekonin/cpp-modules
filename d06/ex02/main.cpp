@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/07 11:50:39 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/07 16:58:10 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/11 11:51:44 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	identify(Base& ptr)
 	std::cout << "identify(): &ptr: ";
 	try
 	{
-		A& a = dynamic_cast<A&>(ptr);
+		A& a = dynamic_cast<A&>(ptr); // Reference Could be null so it segfaults if it is
 		std::cout << "A" << std::endl;
 		(void)a;
 		return;
@@ -59,7 +59,7 @@ void	identify(Base& ptr)
 	}
 	try
 	{
-		B& b = dynamic_cast<B&>(ptr);
+		B& b = dynamic_cast<B&>(ptr); // Reference Could be null so it segfaults if it is
 		std::cout << "B" << std::endl;
 		(void)b;
 		return;
@@ -69,7 +69,7 @@ void	identify(Base& ptr)
 	}
 	try
 	{
-		C& c = dynamic_cast<C&>(ptr);
+		C& c = dynamic_cast<C&>(ptr); // Reference Could be null so it segfaults if it is
 		std::cout << "C" << std::endl;
 		(void)c;
 		return;
@@ -77,7 +77,7 @@ void	identify(Base& ptr)
 	catch(const std::bad_cast&)
 	{
 	}
-	std::cout << "Something terrible just happened!" << std::endl;
+	std::cout << "oopsies!" << std::endl;
 }
 
 void	identify(Base* ptr)

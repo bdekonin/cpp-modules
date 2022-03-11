@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 15:15:19 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/08 16:29:35 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/09 13:49:45 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,20 @@
 Form::Form()
 : _name("Form"), _signed(false), _gradeToSign(0), _gradeToExecute(0)
 {
-	std::cout << "Form [" << _name << "] is Default constructed" << std::endl;
+	std::cout << "[Form] " << _name << " is Default constructed" << std::endl;
 	return ;
 }
 Form::Form(std::string const &name, int gradeToSign, int gradeToExecute)
 : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-	std::cout << "Form [" << _name << "] is constructed" << std::endl;
-	return ;
-}
-Form::Form(std::string const &name, int gradeToSign, int gradeToExecute, bool signedForm)
-: _name(name), _signed(signedForm), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
-{
-	std::cout << "Form [" << _name << "] is constructed" << std::endl;
+	std::cout << "[Form] " << _name << " is constructed" << std::endl;
 	return ;
 }
 
 /* Destructor */
 Form::~Form()
 {
-	std::cout << "Form [" << _name << "] is destructed" << std::endl;
+	std::cout << "[Form] " << _name << " is destructed" << std::endl;
 	return ;
 }
 
@@ -43,14 +37,14 @@ Form::~Form()
 Form::Form(const Form& e)
 : _name(e._name), _signed(e._signed), _gradeToSign(e._gradeToSign), _gradeToExecute(e._gradeToExecute)
 {
-	std::cout << "Form [" << _name << "] is copied" << std::endl;
+	std::cout << "[Form] " << _name << " is copied" << std::endl;
 	return ;
 }
 
 /* Operation overload = */
 Form& Form::operator = (const Form& e)
 {
-	std::cout << "Form [" << _name << "] is assigned" << std::endl;
+	std::cout << "[Form] " << _name << " is assigned" << std::endl;
 	if (this != &e)
 		this->_signed = e._signed;
 	return (*this);
@@ -80,7 +74,10 @@ void Form::beSigned(Bureaucrat &b)
 	else if (b.getGrade() < this->_gradeToSign)
 		throw Form::GradeTooLowException();
 	else
+	{
+		std::cout << "[Form] " << this->getName() << " is signed by " << b.getName() << std::endl;
 		this->_signed = true;
+	}
 	return ;
 }
 

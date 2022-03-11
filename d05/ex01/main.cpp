@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/21 17:39:52 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/08 16:53:00 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/09 13:49:31 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ int main(void)
 		Form doc("Gezondsheidsverklaring", 30, 50);
 
 		doc.beSigned(dmv);
-	}
-	catch (Bureaucrat::GradeTooHighException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << e.what() << std::endl;
 	}
 	catch (Form::GradeTooHighException &e)
 	{
