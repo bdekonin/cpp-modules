@@ -6,13 +6,13 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 15:15:19 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/09 14:15:24 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/09 13:49:45 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-/* Public Constructors */
+/* Constructors */
 Form::Form()
 : _name("Form"), _signed(false), _gradeToSign(0), _gradeToExecute(0)
 {

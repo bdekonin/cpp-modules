@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/21 13:17:59 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/08 15:10:51 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/22 17:24:31 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,16 @@ void	Bureaucrat::decrementGrade()
 		this->_grade++;
 	else
 		throw Bureaucrat::GradeTooHighException();
+}
+void	Bureaucrat::signForm(Form &f)
+{
+	try
+	{
+		std::cout << "[Bureaucrat] " << this->_name << " signs " << f.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "couldn't sign " << f.getName() << " because " << e.what() << std::endl;
+	}
+	
 }
