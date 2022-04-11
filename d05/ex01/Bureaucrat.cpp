@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/21 13:17:59 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/22 17:24:31 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/23 17:41:43 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	Bureaucrat::signForm(Form &f)
 	try
 	{
 		std::cout << "[Bureaucrat] " << this->_name << " signs " << f.getName() << std::endl;
+		f.beSigned(*this);
 	}
 	catch(const std::exception& e)
 	{

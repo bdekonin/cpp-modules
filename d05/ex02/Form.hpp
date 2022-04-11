@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 15:11:21 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/22 17:25:40 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/23 17:59:06 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define FORM_HPP
 
 # include "Bureaucrat.hpp"
+
 class Bureaucrat;
+
 class Form
 {
 	public:
@@ -37,6 +39,7 @@ class Form
 		int			getGradeToSign() const;
 		int			getGradeToExecute() const;
 		void 		beSigned(Bureaucrat &b);
+		virtual void		execute(Bureaucrat const & executor) const;
 
 		/* Exceptions */
 		class GradeTooHighException : public std::exception // Grade 1 Highest
@@ -49,11 +52,19 @@ class Form
 			public:
 				virtual const char* what() const throw();
 		};
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		// virtual void execute(Bureaucrat const & executor) const = 0;
 	private:
 		std::string const _name;
 		bool _signed;
 		int const _gradeToSign;
 		int const _gradeToExecute;
+	protected:
+		std::string	_target;
 };
 
 /* Operation Overload << */

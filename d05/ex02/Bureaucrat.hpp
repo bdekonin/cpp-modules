@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/21 12:58:22 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/22 17:26:03 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/23 15:31:16 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "Form.hpp"
 
 class Form;
+
 class Bureaucrat
 {
 	public:
@@ -55,6 +56,7 @@ class Bureaucrat
 		void 			incrementGrade();
 		void 			decrementGrade();
 		void			signForm(Form &);
+		void			executeForm(Form const &form);
 	private:
 		const std::string		_name;
 		int						_grade; // highest 1, lowest 150

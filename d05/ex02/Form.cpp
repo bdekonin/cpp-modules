@@ -6,7 +6,7 @@
 /*   By: bdekonin <bdekonin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/08 15:15:19 by bdekonin      #+#    #+#                 */
-/*   Updated: 2022/03/09 13:49:45 by bdekonin      ########   odam.nl         */
+/*   Updated: 2022/03/23 17:49:46 by bdekonin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,22 @@ int Form::getGradeToExecute() const
 }
 void Form::beSigned(Bureaucrat &b)
 {
-	if (b.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooHighException();
-	else if (b.getGrade() < this->_gradeToSign)
-		throw Form::GradeTooLowException();
-	else
+	if(b.getGrade() < this->_gradeToSign)
 	{
 		std::cout << "[Form] " << this->getName() << " is signed by " << b.getName() << std::endl;
 		this->_signed = true;
 	}
-	return ;
+	else
+		throw Form::GradeTooLowException();
+}
+void	Form::execute(Bureaucrat const & executor) const
+{
+	if (this->_signed == false)
+		throw Form::FormNotSignedException();
+	else if (executor.getGrade() > this->getGradeToExecute())
+		throw Form::GradeTooHighException();
+	else
+		std::cout << "Executed " << this->getName() << std::endl;
 }
 
 /* Exceptions */
@@ -89,6 +95,10 @@ const char* Form::GradeTooHighException::what() const throw()
 const char* Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low");
+}
+const char* Form::FormNotSignedException::what() const throw()
+{
+	return ("Form is not signed");
 }
 
 /* Operation Overload << */
