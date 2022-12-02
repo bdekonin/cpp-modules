@@ -1,5 +1,7 @@
 # C++ Modules
 
+[![CodeFactor](https://www.codefactor.io/repository/github/bdekonin/cpp-modules/badge)](https://www.codefactor.io/repository/github/bdekonin/cpp-modules)
+
 This repository is for students who want to learn object-oriented programming using the C++ programming language. Students who are already familiar with C will find C++ to be a natural transition to learn object-oriented programming. Here, you will find resources and tutorials to help you get started. 
 
 ## Getting Started
